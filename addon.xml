@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
-  id="skin.aeon.nox.silvo"
+  id="skin.aeon.nox.silvo.mrv.widgets"
   version="5.7.4-3.0.0"
-  name="Aeon Nox 5: SiLVO"
-  provider-name="Created by BigNoid | Modded by SiLVO">
+  name="Aeon Nox 5: SiLVO - Mr. V Widgets"
+  provider-name="Created by BigNoid | Modded by SiLVO | Widgets by Mr. V">
 	<requires>
 		<import addon="xbmc.gui" version="5.10.0"/>
 		<import addon="script.grab.fanart" version="0.12.8"/>
-		<import addon="script.skinshortcuts" version="0.6.5"/>
+		<import addon="script.skinshortcuts" version="0.6.7"/>
 		<import addon="service.library.data.provider" version="0.0.7"/>
 		<import addon="script.toolbox" version="1.1.0"/>
 		<import addon="resource.images.studios.white" version="0.0.1"/>
 		<import addon="resource.images.recordlabels.white" version="0.0.1"/>
 		<import addon="script.image.resource.select" version="0.0.5"/>
 		<import addon="script.extendedinfo" version="3.0.0"/>
+		<import addon="script.skin.helper.service" version="1.0.19"/>
 	</requires>
 	<extension
 	  point="xbmc.gui.skin"
