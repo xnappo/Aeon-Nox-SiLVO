@@ -7,7 +7,7 @@
 	<include file="Includes_LiveBG.xml" />
 	<include file="Includes_LiveTV.xml" />
 	<include file="Includes_LiveTV_Views.xml" />
-	<include file="IncludesHomeRecentlyAdded.xml" />
+	<include file="Includes_Widgets.xml" />
 	<include file="IncludesBackgroundBuilding.xml" />
 	<include file="IncludesWidgets.xml" />
 	<include file="View_50_List.xml" />
@@ -327,7 +327,7 @@
 					<include>ButtonCommonValues</include>
 					<label>$LOCALIZE[31127]</label>
 					<onclick>ActivateWindow(1150)</onclick>
-                </control>
+				</control>
 			</control>
 		</control>
 	</include>

@@ -105,12 +105,12 @@
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
-					<!-- <item id="8">
-						<label>14036</label>
+					<item id="8">
+						<label>31155</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
-					<item id="9">
+					<!-- <item id="9">
 						<label>13000</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
@@ -852,6 +852,60 @@
 						<font>font15</font>
 						<label>Highlight bar</label>
 						<label2>[COLOR=$INFO[Skin.String(HighlightBarColor.name)]][UPPERCASE]$INFO[Skin.String(HighlightBarColor.name)][/UPPERCASE][/COLOR]</label2>						<onclick>RunScript(script.skin.helper.service,action=colorpicker,skinstring=HighlightBarColor)</onclick>
+						<texturenofocus border="1">separator5.png</texturenofocus>
+					</control>
+				</control>
+				<control type="grouplist" id="9008">
+					<description>control area</description>
+					<left>522</left>
+					<top>32</top>
+					<width>1316</width>
+					<height>720</height>
+					<itemgap>0</itemgap>
+					<pagecontrol>60</pagecontrol>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>9007</onup>
+					<ondown>9007</ondown>
+					<visible>Container(9000).HasFocus(8)</visible>
+					<control type="button" id="800">
+						<label>Background</label>
+						<label2>[COLOR labelheader]$VAR[WidgetBackLabelVar][/COLOR]</label2>
+						<onclick>$VAR[WidgetBackVar]</onclick>
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<texturenofocus border="1">separator5.png</texturenofocus>
+					</control>
+					<control type="button" id="801">
+						<label>Transparency</label>
+						<label2>[COLOR labelheader]$VAR[WidgetTransLabelVar]%[/COLOR]</label2>
+						<onclick>$VAR[WidgetTransVar]</onclick>
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<texturenofocus border="1">separator5.png</texturenofocus>
+					</control>
+					<control type="button" id="802">
+						<label>Classic Info</label>
+						<label2>[COLOR labelheader]$VAR[WidgetClassicInfoLabelVar][/COLOR]</label2>
+						<onclick>$VAR[WidgetClassicInfoVar]</onclick>
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<texturenofocus border="1">separator5.png</texturenofocus>
+					</control>
+					<control type="button" id="803">
+						<label>Vertical Widget Position</label>
+						<label2>[COLOR labelheader]$VAR[WidgetVerticalMenuLabelVar][/COLOR]</label2>
+						<onclick>$VAR[WidgetVerticalMenuVar]</onclick>
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
 						<texturenofocus border="1">separator5.png</texturenofocus>
 					</control>
 				</control>

@@ -7,7 +7,8 @@
 		<include>CommonBackground</include>
 		<include condition="!Skin.HasSetting(Disable.Videoinfo)">NowPlayingVideoWidget</include>
 		<include condition="!Skin.HasSetting(Disable.Musicinfo)">NowPlayingMusicWidget</include>
-		<include>HomeRecentlyAddedInfo</include>
+		<include>Widget1</include>
+		<include>Widget2</include>
 		<include>WeatherWidget</include>
 		<include>LiveTVWidget</include>
 		<control type="group">
@@ -49,8 +50,9 @@
 					<height>41</height>
 					<align>right</align>
 					<orientation>horizontal</orientation>
-					<onup condition="Control.IsVisible(9003)">9003</onup>
-					<onup condition="!Control.IsVisible(9003)">9000</onup>
+					<onup condition="Skin.HasSetting(lowermainmenu) + Control.IsVisible(8002)">8002</onup>
+					<onup condition="Skin.HasSetting(lowermainmenu) + !Control.IsVisible(8002)">8001</onup>
+					<onup condition="!Skin.HasSetting(lowermainmenu) + Control.IsVisible(8001)">8001</onup>
 					<ondown>9000</ondown>
 					<include condition="System.HasAddon(script.globalsearch) + !Skin.HasSetting(Disable.SearchButton)">HomeSearchButton</include>
 					<control type="button" id="9021">
@@ -145,6 +147,7 @@
 				<effect type="fade" start="100" end="0" time="300" />
 				<effect type="zoom" start="100" end="130" center="960,540" time="300" tween="cubic" easing="in" />
 			</animation>
+			<animation effect="slide" end="0,-381" time="320" tween="cubic" easing="inout" condition="!Skin.HasSetting(lowermainmenu) + Window.IsVisible(1199)">Conditional</animation>
 			<control type="group">
 				<control type="group" id="9001">
 					<left>0</left>
@@ -307,6 +310,7 @@
 				<animation effect="slide" end="-480,0" time="240">WindowClose</animation>
 				<animation effect="slide" start="-480,0" end="0,0" delay="300" time="240" condition="!window.previous(startup)">WindowOpen</animation>
 				<animation effect="slide" start="-480,0" end="0,0" delay="800" time="480" condition="window.previous(startup)">WindowOpen</animation>
+				<animation effect="slide" end="-299,0" time="320" tween="cubic" easing="inout" condition="Window.IsVisible(1199)">Conditional</animation>
 				<control type="image">
 					<left>0</left>
 					<top>-8</top>
@@ -342,7 +346,6 @@
 					<onup>90100</onup>
 					<ondown>90100</ondown>
 					<onright>9000</onright>
-					<onleft>9004</onleft>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime tween="quadratic" easing="out">300</scrolltime>
 					<orientation>Vertical</orientation>
@@ -442,8 +445,60 @@
 				<align>right</align>
 				<orientation>horizontal</orientation>
 				<onleft>9000</onleft>
-				<ondown condition="Control.IsVisible(9003)">9003</ondown>
-				<ondown condition="!Control.IsVisible(9003)">9000</ondown>
+				<onup condition="StringCompare(Skin.String(VerticalMenuRSS.Position),$LOCALIZE[419]) + Control.IsVisible(8002)">8002</onup>
+				<onup condition="StringCompare(Skin.String(VerticalMenuRSS.Position),$LOCALIZE[419]) + Control.IsVisible(8001) + !Control.IsVisible(8002)">8001</onup>
+				<onup condition="StringCompare(Skin.String(VerticalMenuRSS.Position),$LOCALIZE[419]) + !Control.IsVisible(8001) + !Control.IsVisible(8002)">9000</onup>
+				<ondown condition="!StringCompare(Skin.String(VerticalMenuRSS.Position),$LOCALIZE[419]) + Control.IsVisible(8001)">8001</ondown>
+				<ondown condition="!StringCompare(Skin.String(VerticalMenuRSS.Position),$LOCALIZE[419]) + !Control.IsVisible(8001) + Control.IsVisible(8002)">8002</ondown>
+				<ondown condition="!StringCompare(Skin.String(VerticalMenuRSS.Position),$LOCALIZE[419]) + !Control.IsVisible(8001) + !Control.IsVisible(8002)">9000</ondown>
+				<include condition="System.HasAddon(script.globalsearch) + !Skin.HasSetting(Disable.SearchButton)">HomeSearchButton</include>
+				<control type="button" id="9021">
+					<label></label>
+					<textoffsetx>0</textoffsetx>
+					<width>50</width>
+					<height>41</height>
+					<align>center</align>
+					<font>IconTiny</font>
+					<textcolor>grey</textcolor>
+					<shadowcolor>shadow</shadowcolor>
+					<visible>System.HasMediaDVD</visible>
+					<onclick>EjectTray()</onclick>
+					<animation type="Visible">
+						<effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" />
+						<effect type="zoom" start="50" end="100" center="auto" tween="sine" easing="inout" time="300" />
+					</animation>
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" tween="sine" easing="inout" time="300" />
+						<effect type="zoom" start="100" end="50" center="auto" tween="sine" easing="inout" time="300" />
+					</animation>
+				</control>
+				<control type="button" id="9022">
+					<label></label>
+					<textoffsetx>0</textoffsetx>
+					<width>50</width>
+					<height>41</height>
+					<align>center</align>
+					<font>IconTiny</font>
+					<textcolor>grey</textcolor>
+					<shadowcolor>shadow</shadowcolor>
+					<visible>System.HasMediaDVD</visible>
+					<onclick>PlayDVD</onclick>
+					<animation type="Visible">
+						<effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" />
+						<effect type="zoom" start="50" end="100" center="auto" tween="sine" easing="inout" time="300" />
+					</animation>
+					<animation type="Hidden">
+						<effect type="fade" start="100" end="0" tween="sine" easing="inout" time="300" />
+						<effect type="zoom" start="100" end="50" center="auto" tween="sine" easing="inout" time="300" />
+					</animation>
+				</control>
+				<control type="label" id="9026">
+					<width>5</width>
+					<height>41</height>
+					<label>-</label>
+					<font>font13_title</font>
+					<textcolor>themecolor</textcolor>
+				</control>
 				<control type="image">
 					<width>65</width>
 					<height>40</height>
