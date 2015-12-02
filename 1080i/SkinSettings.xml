@@ -908,6 +908,26 @@
 						<font>font15</font>
 						<texturenofocus border="1">separator5.png</texturenofocus>
 					</control>
+					<control type="radiobutton" id="704">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>Hide widget 1 when not focused </label>
+						<onclick>Skin.ToggleSetting(Widget1.Enable.Hidden)</onclick>
+						<selected>Skin.HasSetting(Widget1.Enable.Hidden)</selected>
+						<texturenofocus border="1">separator5.png</texturenofocus>
+					</control>
+					<control type="radiobutton" id="705">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>Hide widget 2 when not focused </label>
+						<onclick>Skin.ToggleSetting(Widget2.Enable.Hidden)</onclick>
+						<selected>Skin.HasSetting(Widget2.Enable.Hidden)</selected>
+						<texturenofocus border="1">separator5.png</texturenofocus>
+					</control>
 				</control>
 			</control>
 		</control>

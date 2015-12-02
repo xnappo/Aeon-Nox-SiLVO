@@ -15,6 +15,7 @@
 			<animation effect="slide" end="215,259" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + !IsEmpty(Container(9000).ListItem.Property(widget.2)) + StringCompare(Skin.String(Widget.VerticalMenu),Low)">Conditional</animation>
 			<animation effect="slide" end="215,-24" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + StringCompare(Skin.String(Widget.VerticalMenu),High/Low)">Conditional</animation>
 			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Window.IsVisible(1199)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Widget1.Enable.Hidden) + !Control.HasFocus(8001)">Conditional</animation>
 			<visible>!IsEmpty(Container(9000).ListItem.Property(widgetPath))</visible>
 			<include>VisibleFadeEffect</include>
 			<!-- For Testing -->
@@ -45,6 +46,7 @@
 			<animation effect="slide" end="215,259" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + StringCompare(Skin.String(Widget.VerticalMenu),Low)">Conditional</animation>
 			<animation effect="slide" end="215,259" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + StringCompare(Skin.String(Widget.VerticalMenu),High/Low)">Conditional</animation>
 			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Window.IsVisible(1199)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Widget2.Enable.Hidden) + !Control.HasFocus(8002)">Conditional</animation>
 			<visible>!IsEmpty(Container(9000).ListItem.Property(widgetPath.2))</visible>
 			<include>VisibleFadeEffect</include>
 			<control type="image">
