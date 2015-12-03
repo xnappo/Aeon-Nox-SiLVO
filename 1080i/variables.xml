@@ -1606,10 +1606,18 @@
 		<value condition="StringCompare(Skin.String(Widget.VerticalMenu),Low)">Skin.SetString(Widget.VerticalMenu,High/Low)</value>
 		<value condition="StringCompare(Skin.String(Widget.VerticalMenu),High/Low)">Skin.Reset(Widget.VerticalMenu)</value>
 	</variable>
-	<variable name="PortraitCaseLabelVar">
-		<value condition="!IsEmpty(Skin.String(Poster.Case))">$INFO[Skin.String(Poster.Case)]</value>
-		<value>None</value>
+	<variable name="WidgetHideLabelVar">
+		<value condition="!IsEmpty(Skin.String(Widget.Hide))">$INFO[Skin.String(Widget.Hide)]</value>
+		<value>Off</value>
 	</variable>
+	<variable name="WidgetHideVar">
+		<value condition="IsEmpty(Skin.String(Widget.Hide))">Skin.SetString(Widget.Hide,Both)</value>
+		<value condition="StringCompare(Skin.String(Widget.Hide),Both)">Skin.SetString(Widget.Hide,Separate)</value>
+		<value condition="StringCompare(Skin.String(Widget.Hide),Separate)">Skin.SetString(Widget.Hide,Widget 1)</value>
+		<value condition="StringCompare(Skin.String(Widget.Hide),Widget 1)">Skin.SetString(Widget.Hide,Widget 2)</value>
+		<value condition="StringCompare(Skin.String(Widget.Hide),Widget 2)">Skin.Reset(Widget.Hide)</value>
+	</variable>	
+	<!-- Widget Artwork -->
 	<variable name="PortraitCaseVar">
 		<value condition="IsEmpty(Skin.String(Poster.Case))">Skin.SetString(Poster.Case,Glass)</value>
 		<value condition="StringCompare(Skin.String(Poster.Case),Glass)">Skin.SetString(Poster.Case,Case)</value>
@@ -1628,7 +1636,6 @@
 		<value condition="Container(8002).ListItem.IsStereoscopic">3d.png</value>
 		<value>$INFO[Container(8002).ListItem.VideoResolution]p.png</value>
 	</variable>
-	<!-- Widget Artwork -->
 	<variable name="HomeWidgetPosterVar">
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value condition="!IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
