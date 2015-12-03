@@ -3,8 +3,10 @@
 	<!-- ******* WIDGETS ******** -->
 	<include name="Widget1">
 		<control type="group" id="90010">
-			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0">WindowClose</animation>
+			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0" condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) | [StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + !StringCompare(Skin.String(Widget.VerticalMenu),Low)]">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0" condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) | [StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + !StringCompare(Skin.String(Widget.VerticalMenu),Low)]">WindowClose</animation>
+			<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + StringCompare(Skin.String(Widget.VerticalMenu),Low)">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + StringCompare(Skin.String(Widget.VerticalMenu),Low)">WindowClose</animation>
 			<animation effect="fade" start="100" end="0" time="200" reversible="false" condition="Container(9000).OnNext | Container(9000).OnPrevious">Conditional</animation>
 			<animation effect="fade" start="0" end="100" time="200" delay="200" reversible="false" condition="![Container(9000).OnNext | Container(9000).OnPrevious]">Conditional</animation>
 			<animation effect="slide" end="0,9" condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + !Skin.HasSetting(lowermainmenu)">Conditional</animation>
@@ -34,8 +36,10 @@
 	</include>
 	<include name="Widget2">
 		<control type="group" id="90020">
-			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0">WindowClose</animation>
+			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0" condition="[!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + Skin.HasSetting(lowermainmenu)] | [StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + StringCompare(Skin.String(Widget.VerticalMenu),High)]">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0" condition="[!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + Skin.HasSetting(lowermainmenu)] | [StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + StringCompare(Skin.String(Widget.VerticalMenu),High)]">WindowClose</animation>
+			<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0" condition="[!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + !Skin.HasSetting(lowermainmenu)] | [StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + !StringCompare(Skin.String(Widget.VerticalMenu),High)]">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0" condition="[!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + !Skin.HasSetting(lowermainmenu)] | [StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + !StringCompare(Skin.String(Widget.VerticalMenu),High)]">WindowClose</animation>
 			<animation effect="fade" start="100" end="0" time="200" reversible="false" condition="Container(9000).OnNext | Container(9000).OnPrevious">Conditional</animation>
 			<animation effect="fade" start="0" end="100" time="200" delay="200" reversible="false" condition="![Container(9000).OnNext | Container(9000).OnPrevious]">Conditional</animation>
 			<animation effect="slide" end="0,244" condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + !Skin.HasSetting(lowermainmenu)">Conditional</animation>
