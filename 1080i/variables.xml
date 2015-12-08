@@ -1786,17 +1786,17 @@
 	<!-- Widget Labels -->
 	<variable name="HomeWidgetTitleVar">
 		<value condition="!IsEmpty(ListItem.Property(Addon.Name))">$INFO[ListItem.Property(Addon.Name)]	</value>
-		<value condition="!IsEmpty(ListItem.Property(NextTitle))">$INFO[ListItem.Property(NextDay)]. $INFO[ListItem.Property(NextNumber)] $INFO[ListItem.Property(NextTitle)]</value>
+		<value condition="!IsEmpty(ListItem.Property(NextTitle)) | !IsEmpty(ListItem.Property(NextDay))">$INFO[ListItem.Property(NextDay)]. $INFO[ListItem.Property(NextNumber)] $INFO[ListItem.Property(NextTitle)]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 	<variable name="HomeWidget8001TitleVar">
 		<value condition="!IsEmpty(Container(8001).ListItem.Property(Addon.Name))">$INFO[Container(8001).ListItem.Property(Addon.Name)]	</value>
-		<value condition="!IsEmpty(Container(8001).ListItem.Property(NextTitle))">$INFO[Container(8001).ListItem.Property(NextNumber)] $INFO[Container(8001).ListItem.Property(NextTitle)]</value>
+		<value condition="!IsEmpty(Container(8001).ListItem.Property(NextTitle)) | !IsEmpty(Container(8001).ListItem.Property(NextNumber))">$INFO[Container(8001).ListItem.Property(NextNumber)] $INFO[Container(8001).ListItem.Property(NextTitle)]</value>
 		<value>$INFO[Container(8001).ListItem.Label]</value>
 	</variable>
 	<variable name="HomeWidget8002TitleVar">
 		<value condition="!IsEmpty(Container(8002).ListItem.Property(Addon.Name))">$INFO[Container(8002).ListItem.Property(Addon.Name)]	</value>
-		<value condition="!IsEmpty(Container(8002).ListItem.Property(NextTitle))">$INFO[Container(8002).ListItem.Property(NextNumber)] $INFO[Container(8002).ListItem.Property(NextTitle)]</value>
+		<value condition="!IsEmpty(Container(8002).ListItem.Property(NextTitle)) | !IsEmpty(Container(8002).ListItem.Property(NextNumber))">$INFO[Container(8002).ListItem.Property(NextNumber)] $INFO[Container(8002).ListItem.Property(NextTitle)]</value>
 		<value>$INFO[Container(8002).ListItem.Label]</value>
 	</variable>
 	<variable name="HomeWidget8001SubTitleVar">
@@ -1822,7 +1822,7 @@
 		<value condition="!IsEmpty(Container(8001).ListItem.AlbumArtist)">$INFO[Container(8002).ListItem.Duration,, $LOCALIZE[12391]]</value>
 		<value condition="!IsEmpty(Container(8001).ListItem.Property(Addon.Name))">$INFO[Container(8001).ListItem.Property(Addon.Creator),$LOCALIZE[31001] ]</value>
 		<value condition="!IsEmpty(Container(8001).ListItem.Property(HighTemp))">$LOCALIZE[393]: $INFO[Container(8001).ListItem.Property(HighTemp),[COLOR red],[/COLOR]]</value>
-		<value condition="!IsEmpty(Container(8001).ListItem.Property(NextTitle))">$INFO[Container(8001).ListItem.Property(NextDate)]</value>
+		<value condition="!IsEmpty(Container(8001).ListItem.Property(ShortTime))">$INFO[Container(8001).ListItem.Property(NextDay)]</value>
 		<value>$INFO[Container(8001).ListItem.Year]$INFO[Container(8001).ListItem.RatingAndVotes,  |  ]$INFO[Container(8001).ListItem.Duration,  |  , $LOCALIZE[12391]]</value>
 	</variable>
 	<variable name="HomeWidget8002Info1Var">
@@ -1830,7 +1830,7 @@
 		<value condition="!IsEmpty(Container(8002).ListItem.AlbumArtist)">$INFO[Container(8002).ListItem.Duration,, $LOCALIZE[12391]]</value>
 		<value condition="!IsEmpty(Container(8002).ListItem.Property(Addon.Name))">$INFO[Container(8002).ListItem.Property(Addon.Creator),$LOCALIZE[31001] ]</value>
 		<value condition="!IsEmpty(Container(8002).ListItem.Property(HighTemp))">$LOCALIZE[393]: $INFO[Container(8002).ListItem.Property(HighTemp),[COLOR red],[/COLOR]]</value>
-		<value condition="!IsEmpty(Container(8002).ListItem.Property(NextTitle))">$INFO[Container(8002).ListItem.Property(NextDate)]</value>
+		<value condition="!IsEmpty(Container(8002).ListItem.Property(ShortTime))">$INFO[Container(8002).ListItem.Property(ShortTime)] $ESCINFO[Container(8002).ListItem.Property(NextDay)]$INFO[Container(8002).ListItem.Property(RunTime), | , $LOCALIZE[12391]]</value>
 		<value>$INFO[Container(8002).ListItem.Year]$INFO[Container(8002).ListItem.RatingAndVotes,  |  ]$INFO[Container(8002).ListItem.Duration,  |  , $LOCALIZE[12391]]</value>
 	</variable>
 	<variable name="HomeWidget8001Info2Var">

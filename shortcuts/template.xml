@@ -405,14 +405,14 @@
 		<property name="artwork" tag="property" attribute="name|widgetArt.2" value="DiscArt">$VAR[HomeWidget8002DiscArtVar]</property>
 		<property name="artwork" tag="property" attribute="name|widgetArt.2" value="CharacterArt">$VAR[HomeWidget8002CharacterArtVar]</property>
 		<!-- Set Artwork Fallback -->
-		<property name="artworkfb" tag="property" attribute="name|widgetArt" value="DiscArt">IsEmpty(Container(8002).ListItem.Art(discart))</property>
-		<property name="artworkfb" tag="property" attribute="name|widgetArt" value="ClearLogo">IsEmpty(Container(8002).ListItem.Art(clearlogo)) + IsEmpty(Container(8002).ListItem.Art(tvshow.clearlogo))</property>
-		<property name="artworkfb" tag="property" attribute="name|widgetArt" value="ClearArt">IsEmpty(Container(8002).ListItem.Art(clearart)) + IsEmpty(Container(8002).ListItem.Art(tvshow.clearart)) + IsEmpty(Container(8002).ListItem.Art(clearlogo)) + IsEmpty(Container(8002).ListItem.Art(tvshow.clearlogo))</property>
+		<property name="artworkfb" tag="property" attribute="name|widgetArt.2" value="DiscArt">IsEmpty(Container(8002).ListItem.Art(discart))</property>
+		<property name="artworkfb" tag="property" attribute="name|widgetArt.2" value="ClearLogo">IsEmpty(Container(8002).ListItem.Art(clearlogo)) + IsEmpty(Container(8002).ListItem.Art(tvshow.clearlogo))</property>
+		<property name="artworkfb" tag="property" attribute="name|widgetArt.2" value="ClearArt">IsEmpty(Container(8002).ListItem.Art(clearart)) + IsEmpty(Container(8002).ListItem.Art(tvshow.clearart)) + IsEmpty(Container(8002).ListItem.Art(clearlogo)) + IsEmpty(Container(8002).ListItem.Art(tvshow.clearlogo))</property>
 		<property name="artworkfb">false</property>
 		<!-- Set Artwork Aspect -->
-		<property name="aspect" tag="property" attribute="name|widgetArt" value="ClearArt">keep</property>
-		<property name="aspect" tag="property" attribute="name|widgetArt" value="ClearLogo">keep</property>
-		<property name="aspect" tag="property" attribute="name|widgetArt" value="CharacterArt">keep</property>
+		<property name="aspect" tag="property" attribute="name|widgetArt.2" value="ClearArt">keep</property>
+		<property name="aspect" tag="property" attribute="name|widgetArt.2" value="ClearLogo">keep</property>
+		<property name="aspect" tag="property" attribute="name|widgetArt.2" value="CharacterArt">keep</property>
 		<property name="aspect">scale</property>
 		<!-- Set Artwork Diffuse -->
 		<property name="diffuse" tag="property" attribute="name|widgetArt.2" value="DiscArt">thumbs/sets/cdart_mask.png</property>
@@ -467,7 +467,7 @@
 						<animation effect="fade" time="300" tween="sine" easing="inout">VisibleChange</animation>
 					</control>
 					<control type="group">
-						<visible>IsEmpty(Container(8001).ListItem.Property(HighTemp)) + IsEmpty(Container(8002).ListItem.ChannelName) + IsEmpty(Container(8002).ListItem.Artist) + IsEmpty(Container(8002).ListItem.AlbumArtist) + IsEmpty(Container(8002).ListItem.Property(Addon.Name))</visible>
+						<visible>IsEmpty(Container(8002).ListItem.Property(HighTemp)) + IsEmpty(Container(8002).ListItem.ChannelName) + IsEmpty(Container(8002).ListItem.Artist) + IsEmpty(Container(8002).ListItem.AlbumArtist) + IsEmpty(Container(8002).ListItem.Property(Addon.Name))</visible>
 						<control type="image">
 							<left>$SKINSHORTCUTS[lefttexture]</left>
 							<top>-20</top>
@@ -492,7 +492,7 @@
 						</control>
 					</control>
 					<control type="group">
-						<visible>!IsEmpty(Container(8001).ListItem.Property(HighTemp)) | !IsEmpty(Container(8002).ListItem.ChannelName) | !IsEmpty(Container(8002).ListItem.Artist) | !IsEmpty(Container(8002).ListItem.AlbumArtist) | !IsEmpty(Container(8002).ListItem.Property(Addon.Name))</visible>
+						<visible>!IsEmpty(Container(8002).ListItem.Property(HighTemp)) | !IsEmpty(Container(8002).ListItem.ChannelName) | !IsEmpty(Container(8002).ListItem.Artist) | !IsEmpty(Container(8002).ListItem.AlbumArtist) | !IsEmpty(Container(8002).ListItem.Property(Addon.Name))</visible>
 						<control type="image">
 							<left>$SKINSHORTCUTS[lefttexturesquare]</left>
 							<top>-20</top>
@@ -660,7 +660,7 @@
 		<property name="clearVisible" tag="property" attribute="name|widgetCase.2" value="Clear Case">true</property>
 		<property name="clearVisible">false</property>
 		<!-- Set Label -->
-		<property name="title" tag="property" attribute="name|widget" value="weather">false</property>
+		<property name="title" tag="property" attribute="name|widget.2" value="weather">false</property>
 		<property name="title" tag="property" attribute="name|widgetTitle.2" value="Panel">true</property>
 		<property name="title">false</property>
 		<!-- Set Top Position -->
