@@ -234,9 +234,18 @@
 					<left>220</left>
 					<width>350</width>
 					<height>350</height>
-					<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
+					<texture colordiffuse="11FFFFFF">back.png</texture>
 					<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
 					<bordersize>20</bordersize>
+				</control>
+				<control type="image">
+					<description>Cover image</description>
+					<top>0</top>
+					<left>240</left>
+					<width>310</width>
+					<height>310</height>
+					<aspectratio>keep</aspectratio>
+					<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>					
 				</control>
 				<control type="grouplist">
 					<left>570</left>
