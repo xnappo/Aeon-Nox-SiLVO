@@ -570,6 +570,14 @@
 					<texture>$PARAM[Texture]</texture>
 				</control>
 				<control type="image">
+					<width>200</width>
+					<height>300</height>
+					<animation effect="zoom" end="96,96" center="auto" condition="$PARAM[glassVisible]">conditional</animation>
+					<animation effect="zoom" end="95,90" center="100,250" condition="$PARAM[caseVisible]">conditional</animation>
+					<animation effect="zoom" end="94,97" center="auto" condition="$PARAM[clearVisible]">conditional</animation>
+					<texture border="4">listselect_fo.png</texture>
+				</control>
+				<control type="image">
 					<left>0</left>
 					<top>200</top>
 					<width>200</width>
@@ -719,13 +727,21 @@
 					<animation effect="zoom" end="90,98" center="250,150" condition="$PARAM[clearVisible]">conditional</animation>
 					<texture diffuse="$PARAM[Diffuse]">$PARAM[Texture]</texture>
 				</control>
+				<control type="image">
+					<width>282</width>
+					<height>282</height>
+					<animation effect="zoom" end="96,96" center="auto" condition="$PARAM[glassVisible]">conditional</animation>
+					<animation effect="zoom" end="90,98" center="250,150" condition="$PARAM[caseVisible]">conditional</animation>
+					<animation effect="zoom" end="90,98" center="250,150" condition="$PARAM[clearVisible]">conditional</animation>
+					<texture border="4">listselect_fo.png</texture>
+				</control>
 				<control type="label">
 					<left>17</left>
 					<width>248</width>
 					<height>45</height>
 					<font>font14</font>
 					<align>center</align>
-					<textcolor>themecolor</textcolor>
+					<textcolor>white2</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<animation effect="slide" end="10,0" condition="$PARAM[caseVisible]">conditional</animation>
@@ -739,7 +755,7 @@
 					<height>80</height>
 					<font>font14</font>
 					<align>center</align>
-					<textcolor>themecolor</textcolor>
+					<textcolor>white2</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<label>$INFO[ListItem.Label2]</label>
 					<animation effect="slide" end="10,0" condition="$PARAM[caseVisible]">conditional</animation>
@@ -801,7 +817,7 @@
 					<width>282</width>
 					<height>282</height>
 					<texture>$PARAM[Case]</texture>
-				</control>
+				</control>				
 			</control>
 		</focusedlayout>
 	</include>
@@ -816,7 +832,7 @@
 				<colordiffuse>$VAR[HomeWidgetTransVar]</colordiffuse>
 				<animation effect="zoom" end="98,96" center="auto" condition="$PARAM[glassVisible]">conditional</animation>
 				<texture>$PARAM[Texture]</texture>
-			</control>
+			</control>			
 			<control type="image">
 				<left>0</left>
 				<top>166</top>
@@ -894,6 +910,12 @@
 					<aspectratio>$PARAM[Aspect]</aspectratio>
 					<animation effect="zoom" end="98,96" center="auto" condition="$PARAM[glassVisible]">conditional</animation>
 					<texture>$PARAM[Texture]</texture>
+				</control>
+				<control type="image">
+					<width>473</width>
+					<height>266</height>
+					<animation effect="zoom" end="98,96" center="auto" condition="$PARAM[glassVisible]">conditional</animation>
+					<texture border="4">listselect_fo.png</texture>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -1051,6 +1073,12 @@
 					<colordiffuse>$VAR[HomeWidgetTransVar]</colordiffuse>
 					<animation effect="zoom" end="99,96" center="auto" condition="$PARAM[glassVisible]">conditional</animation>
 					<texture>$PARAM[Texture]</texture>
+				</control>
+				<control type="image">
+					<width>712</width>
+					<height>132</height>
+					<animation effect="zoom" end="99,96" center="auto" condition="$PARAM[glassVisible]">conditional</animation>
+					<texture border="4">listselect_fo.png</texture>
 				</control>
 				<control type="image">
 					<left>0</left>
