@@ -208,7 +208,7 @@
 					<label>Art</label>
 					<label2>$VAR[WidgetArtLabelVar]</label2>
 					<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
-					<visible>!IsEmpty(Container(211).ListItem.Property(widgetName)) + !StringCompare(Container(211).ListItem.Property(widget),weather) + !StringCompare(Container(211).ListItem.Property(widget),$LOCALIZE[31502])</visible>
+					<visible>!IsEmpty(Container(211).ListItem.Property(widgetName)) + !StringCompare(Container(211).ListItem.Property(widget),$LOCALIZE[31502])</visible>
 				</control>
 				<control type="button" id="517">
 					<description>Change widget case 1</description>
@@ -218,7 +218,7 @@
 					<font>font13</font>
 					<label>Case</label>
 					<label2>$VAR[WidgetCaseLabelVar]</label2>
-					<visible>!IsEmpty(Container(211).ListItem.Property(widgetName)) + !StringCompare(Container(211).ListItem.Property(widget),weather) + !StringCompare(Container(211).ListItem.Property(widget),$LOCALIZE[31502])</visible>
+					<visible>!IsEmpty(Container(211).ListItem.Property(widgetName)) + !StringCompare(Container(211).ListItem.Property(widget),$LOCALIZE[31502])</visible>
 				</control>
 				<control type="button" id="509">
 					<description>Change widget style 1</description>
@@ -228,7 +228,7 @@
 					<font>font13</font>
 					<label>Style</label>
 					<label2>$VAR[WidgetStyleLabelVar]</label2>
-					<visible>!IsEmpty(Container(211).ListItem.Property(widgetName)) + !StringCompare(Container(211).ListItem.Property(widget),weather) + !StringCompare(Container(211).ListItem.Property(widget),$LOCALIZE[31502])</visible>
+					<visible>!IsEmpty(Container(211).ListItem.Property(widgetName)) + !StringCompare(Container(211).ListItem.Property(widget),$LOCALIZE[31502])</visible>
 				</control>
 				<control type="button" id="515">
 					<description>Change widget title 1</description>
@@ -263,7 +263,7 @@
 					<label>Art</label>
 					<label2>$VAR[WidgetArt2LabelVar]</label2>
 					<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
-					<visible>!IsEmpty(Container(211).ListItem.Property(widgetName.2)) + !StringCompare(Container(211).ListItem.Property(widget.2),weather) + !StringCompare(Container(211).ListItem.Property(widget.2),$LOCALIZE[31502])</visible>
+					<visible>!IsEmpty(Container(211).ListItem.Property(widgetName.2)) + !StringCompare(Container(211).ListItem.Property(widget.2),$LOCALIZE[31502])</visible>
 				</control>
 				<control type="button" id="518">
 					<description>Change widget case 2</description>
@@ -273,7 +273,7 @@
 					<font>font13</font>
 					<label>Case</label>
 					<label2>$VAR[WidgetCase2LabelVar]</label2>
-					<visible>!IsEmpty(Container(211).ListItem.Property(widgetName.2)) + !StringCompare(Container(211).ListItem.Property(widget.2),weather) + !StringCompare(Container(211).ListItem.Property(widget.2),$LOCALIZE[31502])</visible>
+					<visible>!IsEmpty(Container(211).ListItem.Property(widgetName.2)) + !StringCompare(Container(211).ListItem.Property(widget.2),$LOCALIZE[31502])</visible>
 				</control>
 				<control type="button" id="514">
 					<description>Change widget style 2</description>
@@ -283,7 +283,7 @@
 					<font>font13</font>
 					<label>Style</label>
 					<label2>$VAR[WidgetStyle2LabelVar]</label2>
-					<visible>!IsEmpty(Container(211).ListItem.Property(widgetName.2)) + !StringCompare(Container(211).ListItem.Property(widget.2),weather) + !StringCompare(Container(211).ListItem.Property(widget.2),$LOCALIZE[31502])</visible>
+					<visible>!IsEmpty(Container(211).ListItem.Property(widgetName.2)) + !StringCompare(Container(211).ListItem.Property(widget.2),$LOCALIZE[31502])</visible>
 				</control>
 				<control type="button" id="516">
 					<description>Change widget title 2</description>

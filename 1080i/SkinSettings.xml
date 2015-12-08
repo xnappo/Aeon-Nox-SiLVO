@@ -908,16 +908,16 @@
 						<font>font15</font>
 						<texturenofocus border="1">separator5.png</texturenofocus>
 					</control>
-					<control type="button" id="704">
-						<label>Hide Widget when not focused</label>
-						<label2>[COLOR labelheader]$VAR[WidgetHideLabelVar][/COLOR]</label2>
-						<onclick>$VAR[WidgetHideVar]</onclick>
+					<control type="radiobutton" id="704">
 						<width>1316</width>
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
+						<label>Hide widgets when not focused</label>
+						<onclick>Skin.ToggleSetting(Enable.WidgetHide)</onclick>
+						<selected>Skin.HasSetting(Enable.WidgetHide)</selected>
 						<texturenofocus border="1">separator5.png</texturenofocus>
-					</control>										
+					</control>					
 				</control>
 			</control>
 		</control>

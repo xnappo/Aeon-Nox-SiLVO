@@ -921,6 +921,11 @@
 		<value condition="VideoPlayer.Content(livetv) + !IsEmpty(VideoPlayer.Cover)">$INFO[VideoPlayer.Cover]</value>
 		<value>$INFO[Player.Art(thumb)]</value>
 	</variable>
+	<variable name="HomeNowPlayingFakeDiscArtVar">
+		<value condition="VideoPlayer.IsStereoscopic + VideoPlayer.Content(movies)">discart/3d.png</value>
+		<value condition="!VideoPlayer.Content(movies)">homewidgets/cdarttop.png</value>
+		<value condition="VideoPlayer.Content(movies)">discart/$INFO[VideoPlayer.VideoResolution]p.png</value>
+	</variable>
 	<!--<variable name="BigListInfoVar">
 		<value condition="Container.Content(movies) | Container.Content(tvshows)">$INFO[ListItem.Genre]</value>
 		<value condition="Container.Content(episodes)">$INFO[ListItem.Premiered,[COLOR=themecolor]$LOCALIZE[20416]: [/COLOR],]</value>
@@ -1503,11 +1508,11 @@
 	</variable>
 	<!-- Widgets Settings -->
 	<variable name="WidgetInfo8001TypeVar">
-		<value condition="!IsEmpty(Container(8001).ListItem.ChannelName) | !IsEmpty(Container(8001).ListItem.Album) | !IsEmpty(Container(8001).ListItem.Artist) | !IsEmpty(Container(8001).ListItem.AlbumArtist) | !IsEmpty(Container(8001).ListItem.Property(Addon.Name))">Square</value>
+		<value condition="!IsEmpty(Container(8001).ListItem.Property(HighTemp)) | !IsEmpty(Container(8001).ListItem.ChannelName) | !IsEmpty(Container(8001).ListItem.Album) | !IsEmpty(Container(8001).ListItem.Artist) | !IsEmpty(Container(8001).ListItem.AlbumArtist) | !IsEmpty(Container(8001).ListItem.Property(Addon.Name))">Square</value>
 		<value>Portrait</value>
 	</variable>
 	<variable name="WidgetInfo8002TypeVar">
-		<value condition="!IsEmpty(Container(8001).ListItem.ChannelName) | !IsEmpty(Container(8002).ListItem.Album) | !IsEmpty(Container(8002).ListItem.Artist) | !IsEmpty(Container(8002).ListItem.AlbumArtist) | !IsEmpty(Container(8002).ListItem.Property(Addon.Name))">Square</value>
+		<value condition="!IsEmpty(Container(8002).ListItem.Property(HighTemp)) | !IsEmpty(Container(8002).ListItem.ChannelName) | !IsEmpty(Container(8002).ListItem.Album) | !IsEmpty(Container(8002).ListItem.Artist) | !IsEmpty(Container(8002).ListItem.AlbumArtist) | !IsEmpty(Container(8002).ListItem.Property(Addon.Name))">Square</value>
 		<value>Portrait</value>
 	</variable>
 	<variable name="WidgetArtLabelVar">
@@ -1606,17 +1611,6 @@
 		<value condition="StringCompare(Skin.String(Widget.VerticalMenu),Low)">Skin.SetString(Widget.VerticalMenu,High/Low)</value>
 		<value condition="StringCompare(Skin.String(Widget.VerticalMenu),High/Low)">Skin.Reset(Widget.VerticalMenu)</value>
 	</variable>
-	<variable name="WidgetHideLabelVar">
-		<value condition="!IsEmpty(Skin.String(Widget.Hide))">$INFO[Skin.String(Widget.Hide)]</value>
-		<value>Off</value>
-	</variable>
-	<variable name="WidgetHideVar">
-		<value condition="IsEmpty(Skin.String(Widget.Hide))">Skin.SetString(Widget.Hide,Both)</value>
-		<value condition="StringCompare(Skin.String(Widget.Hide),Both)">Skin.SetString(Widget.Hide,Separate)</value>
-		<value condition="StringCompare(Skin.String(Widget.Hide),Separate)">Skin.SetString(Widget.Hide,Widget 1)</value>
-		<value condition="StringCompare(Skin.String(Widget.Hide),Widget 1)">Skin.SetString(Widget.Hide,Widget 2)</value>
-		<value condition="StringCompare(Skin.String(Widget.Hide),Widget 2)">Skin.Reset(Widget.Hide)</value>
-	</variable>	
 	<!-- Widget Artwork -->
 	<variable name="PortraitCaseVar">
 		<value condition="IsEmpty(Skin.String(Poster.Case))">Skin.SetString(Poster.Case,Glass)</value>
@@ -1639,28 +1633,34 @@
 	<variable name="HomeWidgetPosterVar">
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value condition="!IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+		<value condition="!IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
 		<value>$INFO[ListItem.Art(thumb)]</value>
 	</variable>
 	<variable name="HomeWidget8001PosterVar">
 		<value condition="!IsEmpty(Container(8001).ListItem.Art(poster))">$INFO[Container(8001).ListItem.Art(poster)]</value>
 		<value condition="!IsEmpty(Container(8001).ListItem.Art(tvshow.poster))">$INFO[Container(8001).ListItem.Art(tvshow.poster)]</value>
+		<value condition="!IsEmpty(Container(8001).ListItem.Icon)">$INFO[Container(8001).ListItem.Icon]</value>
 		<value>$INFO[Container(8001).ListItem.Art(thumb)]</value>
 	</variable>
 	<variable name="HomeWidget8002PosterVar">
 		<value condition="!IsEmpty(Container(8002).ListItem.Art(poster))">$INFO[Container(8002).ListItem.Art(poster)]</value>
 		<value condition="!IsEmpty(Container(8002).ListItem.Art(tvshow.poster))">$INFO[Container(8002).ListItem.Art(tvshow.poster)]</value>
+		<value condition="!IsEmpty(Container(8002).ListItem.Icon)">$INFO[Container(8002).ListItem.Icon]</value>
 		<value>$INFO[Container(8002).ListItem.Art(thumb)]</value>
 	</variable>
 	<variable name="HomeWidgetFanArtVar">
 		<value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="!IsEmpty(ListItem.Property(fanart))">$INFO[ListItem.Property(fanart)]</value>
 		<value>$INFO[ListItem.Art(thumb)]</value>
 	</variable>
 	<variable name="HomeWidget8001FanArtVar">
 		<value condition="!IsEmpty(Container(8001).ListItem.Art(fanart))">$INFO[Container(8001).ListItem.Art(fanart)]</value>
+		<value condition="!IsEmpty(Container(8001).ListItem.Property(fanart))">$INFO[Container(8001).ListItem.Property(fanart)]</value>
 		<value>$INFO[Container(8001).ListItem.Art(thumb)]</value>
 	</variable>
 	<variable name="HomeWidget8002FanArtVar">
 		<value condition="!IsEmpty(Container(8002).ListItem.Art(fanart))">$INFO[Container(8002).ListItem.Art(fanart)]</value>
+		<value condition="!IsEmpty(Container(8002).ListItem.Property(fanart))">$INFO[Container(8002).ListItem.Property(fanart)]</value>
 		<value>$INFO[Container(8002).ListItem.Art(thumb)]</value>
 	</variable>
 	<variable name="HomeWidgetLandscapeVar">
@@ -1786,35 +1786,17 @@
 	<!-- Widget Labels -->
 	<variable name="HomeWidgetTitleVar">
 		<value condition="!IsEmpty(ListItem.Property(Addon.Name))">$INFO[ListItem.Property(Addon.Name)]	</value>
+		<value condition="!IsEmpty(ListItem.Property(NextTitle))">$INFO[ListItem.Property(NextDay)]. $INFO[ListItem.Property(NextNumber)] $INFO[ListItem.Property(NextTitle)]</value>
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 	<variable name="HomeWidget8001TitleVar">
 		<value condition="!IsEmpty(Container(8001).ListItem.Property(Addon.Name))">$INFO[Container(8001).ListItem.Property(Addon.Name)]	</value>
+		<value condition="!IsEmpty(Container(8001).ListItem.Property(NextTitle))">$INFO[Container(8001).ListItem.Property(NextNumber)] $INFO[Container(8001).ListItem.Property(NextTitle)]</value>
 		<value>$INFO[Container(8001).ListItem.Label]</value>
 	</variable>
 	<variable name="HomeWidget8002TitleVar">
 		<value condition="!IsEmpty(Container(8002).ListItem.Property(Addon.Name))">$INFO[Container(8002).ListItem.Property(Addon.Name)]	</value>
-		<value>$INFO[Container(8002).ListItem.Label]</value>
-	</variable>
-	<variable name="HomeWidgetTitle2Var">
-		<value condition="!IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.TVShowTitle]</value>
-		<value condition="!IsEmpty(ListItem.Artist)">$INFO[ListItem.Artist]</value>
-		<value condition="!IsEmpty(ListItem.AlbumArtist)">$INFO[ListItem.AlbumArtist]</value>
-		<value condition="!IsEmpty(ListItem.Property(Addon.Name))">$INFO[ListItem.Property(Addon.Name)]	</value>
-		<value>$INFO[ListItem.Label]</value>
-	</variable>
-	<variable name="HomeWidget8001Title2Var">
-		<value condition="!IsEmpty(Container(8001).ListItem.TVShowTitle)">$INFO[Container(8001).ListItem.TVShowTitle]</value>
-		<value condition="!IsEmpty(Container(8001).ListItem.Artist)">$INFO[Container(8001).ListItem.Artist]</value>
-		<value condition="!IsEmpty(Container(8001).ListItem.AlbumArtist)">$INFO[Container(8001).ListItem.AlbumArtist]</value>
-		<value condition="!IsEmpty(Container(8001).ListItem.Property(Addon.Name))">$INFO[Container(8001).ListItem.Property(Addon.Name)]	</value>
-		<value>$INFO[Container(8001).ListItem.Label]</value>
-	</variable>
-	<variable name="HomeWidget8002Title2Var">
-		<value condition="!IsEmpty(Container(8002).ListItem.TVShowTitle)">$INFO[Container(8002).ListItem.TVShowTitle]</value>
-		<value condition="!IsEmpty(Container(8002).ListItem.Artist)">$INFO[Container(8002).ListItem.Artist]</value>
-		<value condition="!IsEmpty(Container(8002).ListItem.AlbumArtist)">$INFO[Container(8002).ListItem.AlbumArtist]</value>
-		<value condition="!IsEmpty(Container(8002).ListItem.Property(Addon.Name))">$INFO[Container(8002).ListItem.Property(Addon.Name)]	</value>
+		<value condition="!IsEmpty(Container(8002).ListItem.Property(NextTitle))">$INFO[Container(8002).ListItem.Property(NextNumber)] $INFO[Container(8002).ListItem.Property(NextTitle)]</value>
 		<value>$INFO[Container(8002).ListItem.Label]</value>
 	</variable>
 	<variable name="HomeWidget8001SubTitleVar">
@@ -1823,6 +1805,7 @@
 		<value condition="!IsEmpty(Container(8001).ListItem.Artist)">$INFO[Container(8001).ListItem.Artist]</value>
 		<value condition="!IsEmpty(Container(8001).ListItem.AlbumArtist)">$INFO[Container(8001).ListItem.AlbumArtist]</value>
 		<value condition="!IsEmpty(Container(8001).ListItem.Property(Addon.Summary))">$INFO[Container(8001).ListItem.Property(Addon.Summary)]</value>
+		<value condition="!IsEmpty(Container(8001).ListItem.Property(HighTemp))">$INFO[Container(8001).ListItem.Label2]</value>
 		<value>$INFO[Container(9000).ListItem.Property(widgetName)]</value>
 	</variable>
 	<variable name="HomeWidget8002SubTitleVar">
@@ -1831,36 +1814,45 @@
 		<value condition="!IsEmpty(Container(8002).ListItem.Artist)">$INFO[Container(8002).ListItem.Artist]</value>
 		<value condition="!IsEmpty(Container(8002).ListItem.AlbumArtist)">$INFO[Container(8002).ListItem.AlbumArtist]</value>
 		<value condition="!IsEmpty(Container(8002).ListItem.Property(Addon.Summary))">$INFO[Container(8002).ListItem.Property(Addon.Summary)]</value>
+		<value condition="!IsEmpty(Container(8002).ListItem.Property(HighTemp))">$INFO[Container(8002).ListItem.Label2]</value>
 		<value>$INFO[Container(9000).ListItem.Property(widgetName.2)]</value>
 	</variable>
 	<variable name="HomeWidget8001Info1Var">
 		<value condition="!IsEmpty(Container(8001).ListItem.Artist)">$INFO[Container(8002).ListItem.Duration,, $LOCALIZE[12391]]</value>
 		<value condition="!IsEmpty(Container(8001).ListItem.AlbumArtist)">$INFO[Container(8002).ListItem.Duration,, $LOCALIZE[12391]]</value>
 		<value condition="!IsEmpty(Container(8001).ListItem.Property(Addon.Name))">$INFO[Container(8001).ListItem.Property(Addon.Creator),$LOCALIZE[31001] ]</value>
+		<value condition="!IsEmpty(Container(8001).ListItem.Property(HighTemp))">$LOCALIZE[393]: $INFO[Container(8001).ListItem.Property(HighTemp),[COLOR red],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(8001).ListItem.Property(NextTitle))">$INFO[Container(8001).ListItem.Property(NextDate)]</value>
 		<value>$INFO[Container(8001).ListItem.Year]$INFO[Container(8001).ListItem.RatingAndVotes,  |  ]$INFO[Container(8001).ListItem.Duration,  |  , $LOCALIZE[12391]]</value>
 	</variable>
 	<variable name="HomeWidget8002Info1Var">
 		<value condition="!IsEmpty(Container(8002).ListItem.Artist)">$INFO[Container(8002).ListItem.Duration,, $LOCALIZE[12391]]</value>
 		<value condition="!IsEmpty(Container(8002).ListItem.AlbumArtist)">$INFO[Container(8002).ListItem.Duration,, $LOCALIZE[12391]]</value>
 		<value condition="!IsEmpty(Container(8002).ListItem.Property(Addon.Name))">$INFO[Container(8002).ListItem.Property(Addon.Creator),$LOCALIZE[31001] ]</value>
+		<value condition="!IsEmpty(Container(8002).ListItem.Property(HighTemp))">$LOCALIZE[393]: $INFO[Container(8002).ListItem.Property(HighTemp),[COLOR red],[/COLOR]]</value>
+		<value condition="!IsEmpty(Container(8002).ListItem.Property(NextTitle))">$INFO[Container(8002).ListItem.Property(NextDate)]</value>
 		<value>$INFO[Container(8002).ListItem.Year]$INFO[Container(8002).ListItem.RatingAndVotes,  |  ]$INFO[Container(8002).ListItem.Duration,  |  , $LOCALIZE[12391]]</value>
 	</variable>
 	<variable name="HomeWidget8001Info2Var">
 		<value condition="!IsEmpty(Container(8001).ListItem.Genre)">$INFO[Container(8001).ListItem.Genre]</value>
+		<value condition="!IsEmpty(Container(8001).ListItem.Property(LowTemp))">$LOCALIZE[391]: $INFO[Container(8001).ListItem.Property(LowTemp),[COLOR blue],[/COLOR]]</value>
 		<value>$INFO[Container(9000).ListItem.Property(widgetName)]</value>
 	</variable>
 	<variable name="HomeWidget8002Info2Var">
 		<value condition="!IsEmpty(Container(8002).ListItem.Genre)">$INFO[Container(8002).ListItem.Genre]</value>
+		<value condition="!IsEmpty(Container(8002).ListItem.Property(LowTemp))">$LOCALIZE[391]: $INFO[Container(8002).ListItem.Property(LowTemp),[COLOR blue],[/COLOR]]</value>
 		<value>$INFO[Container(9000).ListItem.Property(widgetName.2)]</value>
 	</variable>
 	<variable name="HomeWidget8001PlotVar">
 		<value condition="!IsEmpty(Container(8001).ListItem.Artist) | !IsEmpty(Container(8001).ListItem.AlbumArtist)">$ESCINFO[Container(8001).ListItem.Property(Album_Description)]</value>
 		<value condition="!IsEmpty(Container(8001).ListItem.Property(Addon.Name))">$ESCINFO[Container(8001).ListItem.Property(Addon.Description)]</value>
+		<value condition="!IsEmpty(Container(8001).ListItem.Property(HighTemp))">$LOCALIZE[33006] $INFO[Window(weather).Property(Current.Condition)]. $LOCALIZE[402] $INFO[Window(weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]. $LOCALIZE[406] $INFO[Window(weather).Property(Current.Humidity)]. $LOCALIZE[404] $INFO[Window(weather).Property(Current.Wind)]. $LOCALIZE[405] $INFO[Window(weather).Property(Current.DewPoint)]$INFO[System.TemperatureUnits]. $LOCALIZE[403] $INFO[Window(weather).Property(Current.UVIndex)]. $LOCALIZE[33027] $INFO[Window(weather).Property(Today.Sunrise)]. $LOCALIZE[33028] $INFO[Window(weather).Property(Today.Sunset)]</value>
 		<value>$ESCINFO[Container(8001).ListItem.Plot]</value>
 	</variable>
 	<variable name="HomeWidget8002PlotVar">
 		<value condition="!IsEmpty(Container(8002).ListItem.Artist) | !IsEmpty(Container(8002).ListItem.AlbumArtist)">$ESCINFO[Container(8002).ListItem.Property(Album_Description)]</value>
 		<value condition="!IsEmpty(Container(8002).ListItem.Property(Addon.Name))">$ESCINFO[Container(8002).ListItem.Property(Addon.Description)]</value>
+		<value condition="!IsEmpty(Container(8002).ListItem.Property(HighTemp))">$LOCALIZE[33006] $INFO[Window(weather).Property(Current.Condition)]. $LOCALIZE[402] $INFO[Window(weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]. $LOCALIZE[406] $INFO[Window(weather).Property(Current.Humidity)]. $LOCALIZE[404] $INFO[Window(weather).Property(Current.Wind)]. $LOCALIZE[405] $INFO[Window(weather).Property(Current.DewPoint)]$INFO[System.TemperatureUnits]. $LOCALIZE[403] $INFO[Window(weather).Property(Current.UVIndex)]. $LOCALIZE[33027] $INFO[Window(weather).Property(Today.Sunrise)]. $LOCALIZE[33028] $INFO[Window(weather).Property(Today.Sunset)]</value>
 		<value>$ESCINFO[Container(8002).ListItem.Plot]</value>
 	</variable>
 	<!-- Widget Flags -->
@@ -1876,11 +1868,13 @@
 		<value condition="!IsEmpty(Container(8001).ListItem.Studio) + Skin.HasSetting(coloredflags)">resource://resource.images.studios.coloured/$INFO[Container(8001).ListItem.Studio,,.png]</value>
 		<value condition="!IsEmpty(Container(8001).ListItem.Studio) + !Skin.HasSetting(coloredflags)">resource://resource.images.studios.white/$INFO[Container(8001).ListItem.Studio,,.png]</value>
 		<value condition="!IsEmpty(Container(8001).ListItem.Property(Album_Label))">resource://resource.images.recordlabels.white/$INFO[Container(8001).ListItem.Property(Album_Label),,.png]</value>
+		<value condition="!IsEmpty(Container(8001).ListItem.Property(HighTemp))">$INFO[Window(weather).Property(WeatherProviderLogo)]</value>
 	</variable>
 	<variable name="HomeWidget8002FlagsStudios">
 		<value condition="!IsEmpty(Container(8002).ListItem.Studio) + Skin.HasSetting(coloredflags)">resource://resource.images.studios.coloured/$INFO[Container(8002).ListItem.Studio,,.png]</value>
 		<value condition="!IsEmpty(Container(8002).ListItem.Studio) + !Skin.HasSetting(coloredflags)">resource://resource.images.studios.white/$INFO[Container(8002).ListItem.Studio,,.png]</value>
 		<value condition="!IsEmpty(Container(8002).ListItem.Property(Album_Label))">resource://resource.images.recordlabels.white/$INFO[Container(8002).ListItem.Property(Album_Label),,.png]</value>
+		<value condition="!IsEmpty(Container(8002).ListItem.Property(HighTemp))">$INFO[Window(weather).Property(WeatherProviderLogo)]</value>
 	</variable>
 	<variable name="HomeWidget8001FlagsResolution">
 		<value condition="Skin.HasSetting(coloredflags)">$INFO[Container(8001).ListItem.VideoResolution,flags/colored/resolution/,.png]</value>

@@ -407,6 +407,7 @@
 					<font>font35_title_bold</font>
 					<textcolor>white</textcolor>
 					<label>$INFO[Window(Home).Property(Widget.Year)]</label>
+					<visible>!IsEmpty(Window(Home).Property(Widget.Year))</visible>
 				</control>
 				<control type="image">
 					<width>140</width>

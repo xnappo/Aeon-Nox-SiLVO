@@ -1,163 +1,275 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="NowPlayingVideoWidget">
-		<!-- Video Info -->
 		<control type="group">
 			<left>0</left>
-			<top>600</top>
+			<top>90</top>
 			<visible>Player.HasVideo</visible>
-			<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)</visible>
 			<include>VisibleFadeEffect</include>
-			<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0" condition="!Skin.HasSetting(lowermainmenu) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0" condition="!Skin.HasSetting(lowermainmenu) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">WindowClose</animation>
-			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0" condition="Skin.HasSetting(lowermainmenu) | StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0" condition="Skin.HasSetting(lowermainmenu) | StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">WindowClose</animation>
-			<animation effect="slide" end="0,-645" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu) | StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
-			<animation effect="slide" end="300,0" time="320" tween="cubic" easing="inout" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
-			<animation effect="slide" end="120,0" time="320" tween="cubic" easing="inout" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + VideoPlayer.Content(livetv)">Conditional</animation>
+			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0" condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + Skin.HasSetting(lowermainmenu)">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0" condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + Skin.HasSetting(lowermainmenu)">WindowClose</animation>
+			<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) | !Skin.HasSetting(lowermainmenu)">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) | !Skin.HasSetting(lowermainmenu)">WindowClose</animation>
+			<animation effect="slide" end="0,603" condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + !Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" end="215,618" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="!Skin.HasSetting(Enable.WidgetHide) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + Skin.HasSetting(lowermainmenu) + Control.IsVisible(90010)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="!Skin.HasSetting(Enable.WidgetHide) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + !Skin.HasSetting(lowermainmenu) + Control.IsVisible(90020)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="!Skin.HasSetting(Enable.WidgetHide) + StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + [Control.IsVisible(90010) | Control.IsVisible(90020)] + IsEmpty(Skin.String(Widget.VerticalMenu))">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="!Skin.HasSetting(Enable.WidgetHide) + StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + Control.IsVisible(90010) + Control.IsVisible(90020) + StringCompare(Skin.String(Widget.VerticalMenu),High)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="!Skin.HasSetting(Enable.WidgetHide) + StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + [Control.IsVisible(90010) | Control.IsVisible(90020)] + StringCompare(Skin.String(Widget.VerticalMenu),Low)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="!Skin.HasSetting(Enable.WidgetHide) + StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + Control.IsVisible(90020) + StringCompare(Skin.String(Widget.VerticalMenu),High/Low)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Enable.WidgetHide) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + Skin.HasSetting(lowermainmenu) + Control.IsVisible(90010) + [Control.HasFocus(8001) | Control.HasFocus(8002)]">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Enable.WidgetHide) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + !Skin.HasSetting(lowermainmenu) + Control.IsVisible(90020) + [Control.HasFocus(8001) | Control.HasFocus(8002)]">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Enable.WidgetHide) + StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + [Control.IsVisible(90010) | Control.IsVisible(90020)] + [Control.HasFocus(8001) | Control.HasFocus(8002)] + IsEmpty(Skin.String(Widget.VerticalMenu))">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Enable.WidgetHide) + StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + Control.IsVisible(90010) + Control.IsVisible(90020) + [Control.HasFocus(8001) | Control.HasFocus(8002)] + StringCompare(Skin.String(Widget.VerticalMenu),High)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Enable.WidgetHide) + StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + [Control.IsVisible(90010) | Control.IsVisible(90020)] + [Control.HasFocus(8001) | Control.HasFocus(8002)] + StringCompare(Skin.String(Widget.VerticalMenu),Low)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Enable.WidgetHide) + StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + Control.IsVisible(90020) + [Control.HasFocus(8001) | Control.HasFocus(8002)] + StringCompare(Skin.String(Widget.VerticalMenu),High/Low)">Conditional</animation>
 			<control type="group">
-				<control type="image">
-					<description>bg image</description>
-					<left>0</left>
-					<top>-30</top>
-					<width>1920</width>
-					<height>560</height>
-					<texture>gradient_floor.png</texture>
-					<visible>!Skin.HasSetting(lowermainmenu) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])</visible>
+				<visible>VideoPlayer.Content(movies)</visible>
+				<control type="image" id="8666">
+					<left>280</left>
+					<top>10</top>
+					<width>290</width>
+					<height>290</height>
+					<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+					<texture>$INFO[Player.Art(discart)]</texture>
 				</control>
 				<control type="image">
-					<animation effect="slide" end="-300,0" time="0" tween="cubic" easing="inout" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
-					<animation effect="slide" end="-120,0" time="0" tween="cubic" easing="inout" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + VideoPlayer.Content(livetv)">Conditional</animation>
-					<description>bg image</description>
-					<left>0</left>
-					<top>-30</top>
-					<width>1920</width>
-					<height>800</height>
-					<texture flipy="true">gradient_floor.png</texture>
-					<visible>Skin.HasSetting(lowermainmenu) | StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])</visible>
+					<left>280</left>
+					<top>10</top>
+					<width>290</width>
+					<height>290</height>
+					<aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
+					<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+					<texture background="true" diffuse="homewidgets/cdart-mask.png">$VAR[HomeNowPlayingThumbVar]</texture>
+					<visible>IsEmpty(Control.GetLabel(8666))</visible>
+				</control>
+				<control type="image">
+					<left>280</left>
+					<top>10</top>
+					<width>290</width>
+					<height>290</height>
+					<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+					<texture>$VAR[HomeNowPlayingFakeDiscArtVar]</texture>
+					<visible>IsEmpty(Control.GetLabel(8666))</visible>
 				</control>
 				<control type="image">
 					<description>Cover image</description>
-					<left>20</left>
-					<top>65</top>
-					<width>350</width>
+					<top>-20</top>
+					<left>220</left>
+					<width>246</width>
 					<height>350</height>
-					<aspectratio align="right">keep</aspectratio>
 					<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
+					<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
 					<bordersize>20</bordersize>
 				</control>
 				<control type="grouplist">
-					<left>390</left>
-					<top>96</top>
-					<width>1510</width>
-					<height>460</height>
-					<itemgap>12</itemgap>
+					<left>580</left>
+					<height>310</height>
+					<align>center</align>
 					<control type="label">
-						<left>50</left>
-						<width>800</width>
-						<height>40</height>
-						<font>font48_title</font>
-						<textcolor>themecolor</textcolor>
-						<shadowcolor>black</shadowcolor>
-						<label>$INFO[VideoPlayer.ChannelName]</label>
-						<visible>VideoPlayer.Content(livetv)</visible>
-					</control>
-					<control type="label">
-						<left>50</left>
-						<width>800</width>
-						<height>40</height>
+						<width>1110</width>
+						<height>55</height>
 						<font>font48_title</font>
 						<textcolor>white2</textcolor>
 						<shadowcolor>black</shadowcolor>
-						<label>$INFO[Player.Title]</label>
+						<label>$INFO[VideoPlayer.Title]</label>
 					</control>
 					<control type="label">
-						<left>90</left>
-						<width>800</width>
-						<height>40</height>
-						<font>font15</font>
+						<width>1110</width>
+						<height>45</height>
+						<font>font16</font>
+						<textcolor>labelheader</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[VideoPlayer.Tagline]</label>
+						<visible>!IsEmpty(VideoPlayer.Tagline)</visible>
+					</control>
+					<control type="label">
+						<width>1110</width>
+						<height>45</height>
+						<font>font16</font>
 						<textcolor>white2</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[VideoPlayer.Year]</label>
+					</control>
+					<control type="label">
+						<width>1110</width>
+						<height>45</height>
+						<font>font16</font>
+						<textcolor>white2</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[VideoPlayer.Genre]</label>
+					</control>
+					<control type="label">
+						<height>55</height>
+						<width>1110</width>
+						<label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
+						<font>font48</font>
+						<textcolor>white2</textcolor>
+						<shadowcolor>black</shadowcolor>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<visible>VideoPlayer.Content(episodes)</visible>
+				<control type="image">
+					<description>Cover image</description>
+					<top>-20</top>
+					<left>220</left>
+					<width>246</width>
+					<height>350</height>
+					<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
+					<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
+					<bordersize>20</bordersize>
+				</control>
+				<control type="grouplist">
+					<left>466</left>
+					<height>310</height>
+					<align>center</align>
+					<control type="label">
+						<width>1220</width>
+						<height>55</height>
+						<font>font48_title</font>
+						<textcolor>white2</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[VideoPlayer.Title]</label>
+					</control>
+					<control type="label">
+						<width>1110</width>
+						<height>45</height>
+						<font>font16</font>
+						<textcolor>labelheader</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<label>$INFO[VideoPlayer.TvShowTitle]</label>
-						<visible>VideoPlayer.Content(episodes)</visible>
 					</control>
 					<control type="label">
-						<left>90</left>
-						<width>800</width>
-						<height>40</height>
-						<font>font15</font>
-						<textcolor>white2</textcolor>
-						<shadowcolor>black</shadowcolor>
-						<label>$INFO[VideoPlayer.Artist]</label>
-						<visible>VideoPlayer.Content(musicvideos)</visible>
-					</control>
-					<control type="label">
-						<left>100</left>
-						<width>800</width>
-						<height>40</height>
-						<font>font15</font>
+						<width>1110</width>
+						<height>45</height>
+						<font>font16</font>
 						<textcolor>white2</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<label>$INFO[VideoPlayer.Season,$LOCALIZE[20373] ,], $INFO[VideoPlayer.Episode,$LOCALIZE[20452] , , ]</label>
-						<visible>VideoPlayer.Content(episodes)</visible>
 					</control>
 					<control type="label">
-						<left>90</left>
-						<width>800</width>
-						<height>40</height>
-						<font>font15</font>
+						<width>1110</width>
+						<height>45</height>
+						<font>font16</font>
 						<textcolor>white2</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<label>$INFO[VideoPlayer.Premiered]</label>
-						<visible>VideoPlayer.Content(episodes)</visible>
 					</control>
 					<control type="label">
-						<left>90</left>
-						<width>800</width>
-						<height>40</height>
-						<font>font15</font>
+						<height>55</height>
+						<width>1300</width>
+						<label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
+						<font>font48</font>
 						<textcolor>white2</textcolor>
 						<shadowcolor>black</shadowcolor>
-						<label>$INFO[VideoPlayer.Tagline]</label>
-						<visible>VideoPlayer.Content(movies)</visible>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<visible>VideoPlayer.Content(musicvideos)</visible>
+				<control type="image">
+					<description>Cover image</description>
+					<top>-20</top>
+					<left>220</left>
+					<width>350</width>
+					<height>350</height>
+					<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
+					<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
+					<bordersize>20</bordersize>
+				</control>
+				<control type="grouplist">
+					<left>570</left>
+					<height>310</height>
+					<align>center</align>
+					<control type="label">
+						<width>1110</width>
+						<height>55</height>
+						<font>font48_title</font>
+						<textcolor>white2</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[VideoPlayer.Title]</label>
 					</control>
 					<control type="label">
-						<left>100</left>
-						<width>800</width>
-						<height>40</height>
-						<font>font15</font>
-						<textcolor>white2</textcolor>
+						<width>1110</width>
+						<height>45</height>
+						<font>font16</font>
+						<textcolor>labelheader</textcolor>
 						<shadowcolor>black</shadowcolor>
-						<label>$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre, | ]</label>
-						<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)</visible>
+						<label>$INFO[VideoPlayer.Artist]</label>
 					</control>
 					<control type="label">
-						<left>90</left>
-						<width>800</width>
-						<height>40</height>
-						<font>font15</font>
+						<width>1110</width>
+						<height>45</height>
+						<font>font16</font>
 						<textcolor>white2</textcolor>
 						<shadowcolor>black</shadowcolor>
-						<label>$INFO[VideoPlayer.Studio]</label>
-						<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)</visible>
+						<label>$INFO[VideoPlayer.Genre]</label>
+					</control>
+					<control type="label">
+						<width>1110</width>
+						<height>45</height>
+						<font>font16</font>
+						<textcolor>white2</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[VideoPlayer.Year]</label>
+					</control>
+					<control type="label">
+						<height>55</height>
+						<width>1100</width>
+						<label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
+						<font>font48</font>
+						<textcolor>white2</textcolor>
+						<shadowcolor>black</shadowcolor>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<visible>VideoPlayer.Content(livetv)</visible>
+				<control type="image">
+					<description>Cover image</description>
+					<top>-20</top>
+					<left>220</left>
+					<width>350</width>
+					<height>350</height>
+					<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
+					<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
+					<bordersize>20</bordersize>
+				</control>
+				<control type="grouplist">
+					<left>570</left>
+					<height>310</height>
+					<align>center</align>
+					<control type="label">
+						<width>1110</width>
+						<height>55</height>
+						<font>font48_title</font>
+						<textcolor>white2</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[VideoPlayer.ChannelName]</label>
+					</control>
+					<control type="label">
+						<width>1110</width>
+						<height>45</height>
+						<font>font16</font>
+						<textcolor>labelheader</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Player.Title]</label>
 					</control>
 					<control type="textbox">
-						<left>100</left>
-						<width>800</width>
+						<width>1110</width>
 						<height>120</height>
 						<font>font15</font>
-						<textcolor>white</textcolor>
+						<textcolor>white2</textcolor>
 						<shadowcolor>black</shadowcolor>
 						<label>$INFO[VideoPlayer.Plot]</label>
-						<visible>VideoPlayer.Content(livetv)</visible>
-						<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
 					</control>
 					<control type="label">
-						<description>Time Label</description>
-						<left>50</left>
-						<height>50</height>
-						<width>800</width>
-						<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=labelheader] / [/COLOR]]</label>
+						<height>55</height>
+						<width>1100</width>
+						<label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
 						<font>font48</font>
 						<textcolor>white2</textcolor>
 						<shadowcolor>black</shadowcolor>
@@ -170,138 +282,109 @@
 		<!-- Music Info -->
 		<control type="group">
 			<left>0</left>
-			<top>600</top>
+			<top>90</top>
 			<visible>Player.HasAudio</visible>
 			<include>VisibleFadeEffect</include>
-			<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0" condition="!Skin.HasSetting(lowermainmenu) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0" condition="!Skin.HasSetting(lowermainmenu) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">WindowClose</animation>
-			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0" condition="Skin.HasSetting(lowermainmenu) | StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0" condition="Skin.HasSetting(lowermainmenu) | StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">WindowClose</animation>
-			<animation effect="slide" end="0,-660" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu) | StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
-			<animation effect="slide" end="400,0" time="320" tween="cubic" easing="inout" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
-			<control type="image">
-				<left>0</left>
-				<top>-150</top>
-				<width>FullScreenWidth</width>
-				<height>630</height>
-				<texture border="1">nowplaying_shadow.png</texture>
-				<visible>!Skin.HasSetting(lowermainmenu) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])</visible>
+			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0" condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + Skin.HasSetting(lowermainmenu)">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0" condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + Skin.HasSetting(lowermainmenu)">WindowClose</animation>
+			<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) | !Skin.HasSetting(lowermainmenu)">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) | !Skin.HasSetting(lowermainmenu)">WindowClose</animation>
+			<animation effect="slide" end="0,603" condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + !Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" end="215,618" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="!Skin.HasSetting(Enable.WidgetHide) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + Skin.HasSetting(lowermainmenu) + Control.IsVisible(90010)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="!Skin.HasSetting(Enable.WidgetHide) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + !Skin.HasSetting(lowermainmenu) + Control.IsVisible(90020)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="!Skin.HasSetting(Enable.WidgetHide) + StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + [Control.IsVisible(90010) | Control.IsVisible(90020)] + IsEmpty(Skin.String(Widget.VerticalMenu))">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="!Skin.HasSetting(Enable.WidgetHide) + StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + Control.IsVisible(90010) + Control.IsVisible(90020) + StringCompare(Skin.String(Widget.VerticalMenu),High)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="!Skin.HasSetting(Enable.WidgetHide) + StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + [Control.IsVisible(90010) | Control.IsVisible(90020)] + StringCompare(Skin.String(Widget.VerticalMenu),Low)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="!Skin.HasSetting(Enable.WidgetHide) + StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + Control.IsVisible(90020) + StringCompare(Skin.String(Widget.VerticalMenu),High/Low)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Enable.WidgetHide) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + Skin.HasSetting(lowermainmenu) + Control.IsVisible(90010) + [Control.HasFocus(8001) | Control.HasFocus(8002)]">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Enable.WidgetHide) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + !Skin.HasSetting(lowermainmenu) + Control.IsVisible(90020) + [Control.HasFocus(8001) | Control.HasFocus(8002)]">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Enable.WidgetHide) + StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + [Control.IsVisible(90010) | Control.IsVisible(90020)] + [Control.HasFocus(8001) | Control.HasFocus(8002)] + IsEmpty(Skin.String(Widget.VerticalMenu))">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Enable.WidgetHide) + StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + Control.IsVisible(90010) + Control.IsVisible(90020) + [Control.HasFocus(8001) | Control.HasFocus(8002)] + StringCompare(Skin.String(Widget.VerticalMenu),High)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Enable.WidgetHide) + StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + [Control.IsVisible(90010) | Control.IsVisible(90020)] + [Control.HasFocus(8001) | Control.HasFocus(8002)] + StringCompare(Skin.String(Widget.VerticalMenu),Low)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" delay="100" condition="Skin.HasSetting(Enable.WidgetHide) + StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994]) + Control.IsVisible(90020) + [Control.HasFocus(8001) | Control.HasFocus(8002)] + StringCompare(Skin.String(Widget.VerticalMenu),High/Low)">Conditional</animation>
+			<control type="image" id="8667">
+				<left>390</left>
+				<top>10</top>
+				<width>290</width>
+				<height>290</height>
+				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+				<texture>$INFO[Player.FolderPath]cdart.png</texture>
 			</control>
 			<control type="image">
-				<animation effect="slide" end="-400,0" time="0" tween="cubic" easing="inout" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
-				<left>0</left>
-				<top>-50</top>
-				<width>FullScreenWidth</width>
-				<height>630</height>
-				<texture flipy="true" border="1">nowplaying_shadow.png</texture>
-				<visible>Skin.HasSetting(lowermainmenu) | StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])</visible>
+				<left>390</left>
+				<top>10</top>
+				<width>290</width>
+				<height>290</height>
+				<aspectratio aligny="top" scalediffuse="false">scale</aspectratio>
+				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+				<texture background="true" diffuse="homewidgets/cdart-mask.png">$VAR[HomeNowPlayingThumbVar]</texture>
+				<visible>IsEmpty(Control.GetLabel(8667))</visible>
+			</control>
+			<control type="image">
+				<left>390</left>
+				<top>10</top>
+				<width>290</width>
+				<height>290</height>
+				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+				<texture>$VAR[HomeNowPlayingFakeDiscArtVar]</texture>
+				<visible>IsEmpty(Control.GetLabel(8667))</visible>
+			</control>
+			<control type="image">
+				<description>Cover image</description>
+				<top>-20</top>
+				<left>220</left>
+				<width>350</width>
+				<height>350</height>
+				<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
+				<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
+				<bordersize>20</bordersize>
 			</control>
 			<control type="grouplist">
-				<left>410</left>
-				<top>86</top>
-				<width>1510</width>
-				<height>460</height>
-				<itemgap>12</itemgap>
-				<usecontrolcoords>true</usecontrolcoords>
+				<left>690</left>
+				<height>310</height>
+				<align>center</align>
 				<control type="label">
-					<top>35</top>
-					<left>50</left>
-					<width>1300</width>
-					<height>40</height>
+					<width>990</width>
+					<height>55</height>
 					<font>font48_title</font>
 					<textcolor>white2</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<label>$INFO[MusicPlayer.TrackNumber,,. ]$INFO[Player.Title]</label>
 				</control>
 				<control type="label">
-					<height>2</height>
-					<label>-</label>
-				</control>
-				<control type="label">
-					<left>90</left>
-					<width>1300</width>
-					<height>40</height>
-					<font>font15</font>
-					<textcolor>white2</textcolor>
+					<width>990</width>
+					<height>45</height>
+					<font>font16</font>
+					<textcolor>labelheader</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<label>$INFO[MusicPlayer.Artist]</label>
 				</control>
 				<control type="label">
-					<left>100</left>
-					<width>1300</width>
-					<height>40</height>
-					<font>font15</font>
+					<width>990</width>
+					<height>45</height>
+					<font>font16</font>
 					<textcolor>white2</textcolor>
 					<shadowcolor>black</shadowcolor>
-					<label>$INFO[MusicPlayer.Album]$INFO[musicplayer.discnumber, - $LOCALIZE[427]:]</label>
+					<label>$INFO[MusicPlayer.Album]</label>
 				</control>
 				<control type="label">
-					<left>90</left>
-					<width>1300</width>
-					<height>40</height>
-					<font>font15</font>
+					<width>990</width>
+					<height>45</height>
+					<font>font16</font>
 					<textcolor>white2</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<label>$INFO[MusicPlayer.offset(1).TrackNumber,[COLOR=labelheader]$LOCALIZE[19031]:[/COLOR] ,. ]$INFO[MusicPlayer.offset(1).Artist,, - ]$INFO[MusicPlayer.offset(1).Title]</label>
 				</control>
 				<control type="label">
-					<height>2</height>
-					<label>-</label>
-				</control>
-				<control type="label">
-					<description>Time Label</description>
-					<left>50</left>
-					<height>50</height>
-					<width>1300</width>
-					<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=labelheader] / [/COLOR]]</label>
+					<height>55</height>
+					<width>990</width>
+					<label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
 					<font>font48</font>
 					<textcolor>white2</textcolor>
 					<shadowcolor>black</shadowcolor>
 				</control>
 			</control>
-			<control type="image">
-				<left>160</left>
-				<top>80</top>
-				<width>360</width>
-				<height>360</height>
-				<aligny>top</aligny>
-				<aspectratio align="left">keep</aspectratio>
-				<fadetime>300</fadetime>
-				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
-				<texture background="true" fallback="special://skin/extras/cdart/default.png" diffuse="thumbs/cdart_mask.png">$INFO[Player.FolderPath]cdart.png</texture>
-				<bordersize>30</bordersize>
-			</control>
-			<control type="image">
-				<description>Cover image</description>
-				<left>-10</left>
-				<top>80</top>
-				<width>390</width>
-				<height>360</height>
-				<aspectratio align="right">keep</aspectratio>
-				<texture diffuse="thumbs/cdcover_mask2.png" fallback="DefaultAlbumCover.png">$INFO[Player.Art(thumb)]</texture>
-				<bordertexture border="28">thumbs/cd_shadow2.png</bordertexture>
-				<bordersize>28</bordersize>
-			</control>
-			<!--<control type="image">
-				<left>1290</left>
-				<top>80</top>
-				<width>609</width>
-				<height>360</height>
-				<aspectratio>stretch</aspectratio>
-				<texture border="20">thumbs/thumb_shadow.png</texture>
-			</control>
-			<control type="multiimage">
-				<description>Fanart image</description>
-				<left>1310</left>
-				<top>65</top>
-				<width>570</width>
-				<height>320</height>
-				<aspectratio align="left">keep</aspectratio>
-				<imagepath background="true" fallback="special://skin/backgrounds/fallback_music.jpg">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
-				<texture fallback="special://skin/backgrounds/fallback_music.jpg">$INFO[Player.Art(fanart)]</texture>
-				<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
-				<bordersize>20</bordersize>
-			</control>-->
 		</control>
 	</include>
 	<include name="RSSFeedWidget">
@@ -591,402 +674,10 @@
 			</control>
 		</control>
 	</include>
-	<include name="WeatherWidget">
-		<control type="group">
-			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0">WindowClose</animation>
-			<animation effect="slide" tween="cubic" time="320" end="0,-40" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			<include>VisibleFadeEffect</include>
-			<visible>StringCompare(Container(9000).ListItem.Property(widget),weather) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])</visible>
-			<control type="image">
-				<left>0</left>
-				<top>0</top>
-				<width>FullScreenWidth</width>
-				<height>630</height>
-				<texture flipy="true" border="1">nowplaying_shadow.png</texture>
-				<animation effect="rotatex" end="180" time="320" center="20" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-				<animation effect="slide" end="0,-810" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			</control>
-			<control type="image">
-				<top>715</top>
-				<width>FullScreenWidth</width>
-				<height>50</height>
-				<texture>v2.png</texture>
-				<animation effect="slide" end="0,-506" time="320" tween="cubic" easing="inout" condition="!Skin.HasSetting(lowermainmenu)">Conditional</animation>
-			</control>
-			<control type="panel" id="300">
-				<left>0</left>
-				<top>40</top>
-				<width>FullScreenWidth</width>
-				<height>300</height>
-				<onup>9000</onup>
-				<ondown>9000</ondown>
-				<orientation>horizontal</orientation>
-				<scrolltime tween="quadratic" easing="out">200</scrolltime>
-				<animation effect="slide" end="0,508" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu)">Conditional</animation>
-				<itemlayout height="300" width="320">
-					<control type="image">
-						<left>327</left>
-						<width>2</width>
-						<height>300</height>
-						<texture border="1">separator3.png</texture>
-					</control>
-					<control type="image">
-						<description>current weather icon</description>
-						<top>60</top>
-						<width>320</width>
-						<height>100</height>
-						<texture>$INFO[ListItem.Icon]</texture>
-						<aspectratio aligny="top">keep</aspectratio>
-					</control>
-					<control type="label">
-						<width>320</width>
-						<height>60</height>
-						<font>font15</font>
-						<align>center</align>
-						<textcolor>white2</textcolor>
-						<shadowcolor>black</shadowcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-						<textoffsetx>15</textoffsetx>
-					</control>
-					<control type="label">
-						<top>160</top>
-						<width>320</width>
-						<height>60</height>
-						<font>font15</font>
-						<align>center</align>
-						<textcolor>white2</textcolor>
-						<shadowcolor>black</shadowcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Label2]</label>
-						<textoffsetx>15</textoffsetx>
-					</control>
-					<control type="label">
-						<top>240</top>
-						<width>320</width>
-						<height>60</height>
-						<font>font15</font>
-						<align>center</align>
-						<textcolor>white2</textcolor>
-						<shadowcolor>black</shadowcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Property(HighTemp),[COLOR red],[/COLOR]]$INFO[ListItem.Property(LowTemp), | [COLOR blue],[/COLOR]]</label>
-						<textoffsetx>15</textoffsetx>
-					</control>
-				</itemlayout>
-				<focusedlayout height="300" width="320">
-					<control type="image">
-						<left>318</left>
-						<width>2</width>
-						<height>300</height>
-						<texture border="1">separator3.png</texture>
-					</control>
-					<control type="image">
-						<width>320</width>
-						<height>300</height>
-						<texture colordiffuse="$VAR[HighlightBarColor]" border="4">listselect_fo.png</texture>
-					</control>
-					<control type="image">
-						<description>current weather icon</description>
-						<top>60</top>
-						<width>320</width>
-						<height>100</height>
-						<texture>$INFO[ListItem.Icon]</texture>
-						<aspectratio aligny="top">keep</aspectratio>
-					</control>
-					<control type="label">
-						<width>320</width>
-						<height>60</height>
-						<font>font15</font>
-						<align>center</align>
-						<selectedcolor>selected</selectedcolor>
-						<shadowcolor>black</shadowcolor>
-						<label>$INFO[ListItem.Label]</label>
-						<textoffsetx>15</textoffsetx>
-					</control>
-					<control type="label">
-						<top>160</top>
-						<width>320</width>
-						<height>60</height>
-						<font>font15</font>
-						<align>center</align>
-						<selectedcolor>selected</selectedcolor>
-						<shadowcolor>black</shadowcolor>
-						<label>$INFO[ListItem.Label2]</label>
-						<textoffsetx>15</textoffsetx>
-					</control>
-					<control type="label">
-						<top>240</top>
-						<width>320</width>
-						<height>60</height>
-						<font>font15</font>
-						<align>center</align>
-						<shadowcolor>black</shadowcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Property(HighTemp),[COLOR red],[/COLOR]]$INFO[ListItem.Property(LowTemp), | [COLOR blue],[/COLOR]]</label>
-						<textoffsetx>15</textoffsetx>
-					</control>
-				</focusedlayout>
-				<content>
-					<item>
-						<label>$LOCALIZE[31909]</label>
-						<icon>-</icon>
-						<onclick>noop</onclick>
-						<visible>!Weather.IsFetched</visible>
-					</item>
-					<item>
-						<label>$INFO[Window(weather).Property(Day0.Title)]</label>
-						<label2>$INFO[Window(weather).Property(Day0.Outlook)]</label2>
-						<icon>$VAR[WeatherOverviewIcon0Var]</icon>
-						<property name="HighTemp">$INFO[Window(weather).Property(Day0.HighTemp)]$INFO[System.TemperatureUnits]</property>
-						<property name="LowTemp">$INFO[Window(weather).Property(Day0.LowTemp)]$INFO[System.TemperatureUnits]</property>
-						<onclick>noop</onclick>
-					</item>
-					<item>
-						<label>$INFO[Window(weather).Property(Day1.Title)]</label>
-						<label2>$INFO[Window(weather).Property(Day1.Outlook)]</label2>
-						<icon>$VAR[WeatherOverviewIcon1Var]</icon>
-						<property name="HighTemp">$INFO[Window(weather).Property(Day1.HighTemp)]$INFO[System.TemperatureUnits]</property>
-						<property name="LowTemp">$INFO[Window(weather).Property(Day1.LowTemp)]$INFO[System.TemperatureUnits]</property>
-						<onclick>noop</onclick>
-					</item>
-					<item>
-						<label>$INFO[Window(weather).Property(Day2.Title)]</label>
-						<label2>$INFO[Window(weather).Property(Day2.Outlook)]</label2>
-						<icon>$VAR[WeatherOverviewIcon2Var]</icon>
-						<property name="HighTemp">$INFO[Window(weather).Property(Day2.HighTemp)]$INFO[System.TemperatureUnits]</property>
-						<property name="LowTemp">$INFO[Window(weather).Property(Day2.LowTemp)]$INFO[System.TemperatureUnits]</property>
-						<onclick>noop</onclick>
-					</item>
-					<item>
-						<label>$INFO[Window(weather).Property(Day3.Title)]</label>
-						<label2>$INFO[Window(weather).Property(Day3.Outlook)]</label2>
-						<icon>$VAR[WeatherOverviewIcon3Var]</icon>
-						<property name="HighTemp">$INFO[Window(weather).Property(Day3.HighTemp)]$INFO[System.TemperatureUnits]</property>
-						<property name="LowTemp">$INFO[Window(weather).Property(Day3.LowTemp)]$INFO[System.TemperatureUnits]</property>
-						<onclick>noop</onclick>
-					</item>
-					<item>
-						<label>$INFO[Window(weather).Property(Day4.Title)]</label>
-						<label2>$INFO[Window(weather).Property(Day4.Outlook)]</label2>
-						<icon>$VAR[WeatherOverviewIcon4Var]</icon>
-						<property name="HighTemp">$INFO[Window(weather).Property(Day4.HighTemp)]$INFO[System.TemperatureUnits]</property>
-						<property name="LowTemp">$INFO[Window(weather).Property(Day4.LowTemp)]$INFO[System.TemperatureUnits]</property>
-						<onclick>noop</onclick>
-					</item>
-					<item>
-						<label>$INFO[Window(weather).Property(Day5.Title)]</label>
-						<label2>$INFO[Window(weather).Property(Day5.Outlook)]</label2>
-						<icon>$VAR[WeatherOverviewIcon5Var]</icon>
-						<property name="HighTemp">$INFO[Window(weather).Property(Day5.HighTemp)]$INFO[System.TemperatureUnits]</property>
-						<property name="LowTemp">$INFO[Window(weather).Property(Day5.LowTemp)]$INFO[System.TemperatureUnits]</property>
-						<onclick>noop</onclick>
-					</item>
-					<item>
-						<label>$INFO[Window(weather).Property(Day6.Title)]</label>
-						<label2>$INFO[Window(weather).Property(Day6.Outlook)]</label2>
-						<icon>$VAR[WeatherOverviewIcon6Var]</icon>
-						<property name="HighTemp">$INFO[Window(weather).Property(Day6.HighTemp)]$INFO[System.TemperatureUnits]</property>
-						<property name="LowTemp">$INFO[Window(weather).Property(Day6.LowTemp)]$INFO[System.TemperatureUnits]</property>
-						<onclick>noop</onclick>
-					</item>
-				</content>
-			</control>
-		</control>
-		<control type="group">
-			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0">WindowClose</animation>
-			<include>VisibleFadeEffect</include>
-			<visible>StringCompare(Container(9000).ListItem.Property(widget),weather) + StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])</visible>
-			<left>485</left>
-			<top>-110</top>
-			<control type="image">
-				<left>-50</left>
-				<top>445</top>
-				<width>FullScreenWidth</width>
-				<height>280</height>
-				<texture>nowplaying_shadow.png</texture>
-				<animation effect="fade" start="100" end="80" time="240" condition="true">conditional</animation>
-			</control>
-			<control type="image">
-				<left>-60</left>
-				<top>675</top>
-				<width>FullScreenWidth</width>
-				<height>260</height>
-				<texture flipy="true">nowplaying_shadow.png</texture>
-				<animation effect="fade" start="100" end="80" time="240" condition="true">conditional</animation>
-			</control>
-			<control type="panel" id="300">
-				<left>-60</left>
-				<top>0</top>
-				<width>FullScreenWidth</width>
-				<height>300</height>
-				<onup>9000</onup>
-				<ondown>9000</ondown>
-				<orientation>horizontal</orientation>
-				<scrolltime tween="quadratic" easing="out">200</scrolltime>
-				<animation effect="slide" end="0,508" time="320" tween="cubic" easing="inout" condition="true">Conditional</animation>
-				<itemlayout height="300" width="300">
-					<control type="image">
-						<left>307</left>
-						<width>2</width>
-						<height>300</height>
-						<texture border="1">separator3.png</texture>
-					</control>
-					<control type="image">
-						<description>current weather icon</description>
-						<top>60</top>
-						<width>300</width>
-						<height>100</height>
-						<texture>$INFO[ListItem.Icon]</texture>
-						<aspectratio aligny="top">keep</aspectratio>
-					</control>
-					<control type="label">
-						<width>300</width>
-						<height>60</height>
-						<font>font14</font>
-						<align>center</align>
-						<textcolor>white2</textcolor>
-						<shadowcolor>black</shadowcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-						<textoffsetx>15</textoffsetx>
-					</control>
-					<control type="label">
-						<top>160</top>
-						<width>300</width>
-						<height>60</height>
-						<font>font14</font>
-						<align>center</align>
-						<textcolor>white2</textcolor>
-						<shadowcolor>black</shadowcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Label2]</label>
-						<textoffsetx>15</textoffsetx>
-					</control>
-					<control type="label">
-						<top>240</top>
-						<width>300</width>
-						<height>60</height>
-						<font>font14</font>
-						<align>center</align>
-						<textcolor>white2</textcolor>
-						<shadowcolor>black</shadowcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Property(HighTemp),[COLOR red],[/COLOR]]$INFO[ListItem.Property(LowTemp), | [COLOR blue],[/COLOR]]</label>
-						<textoffsetx>15</textoffsetx>
-					</control>
-				</itemlayout>
-				<focusedlayout height="300" width="300">
-					<control type="image">
-						<left>298</left>
-						<width>2</width>
-						<height>300</height>
-						<texture border="1">separator3.png</texture>
-					</control>
-					<control type="image">
-						<width>300</width>
-						<height>300</height>
-						<texture colordiffuse="$VAR[HighlightBarColor]" border="4">listselect_fo.png</texture>
-					</control>
-					<control type="image">
-						<description>current weather icon</description>
-						<top>60</top>
-						<width>300</width>
-						<height>100</height>
-						<texture>$INFO[ListItem.Icon]</texture>
-						<aspectratio aligny="top">keep</aspectratio>
-					</control>
-					<control type="label">
-						<width>300</width>
-						<height>60</height>
-						<font>font14</font>
-						<align>center</align>
-						<selectedcolor>selected</selectedcolor>
-						<shadowcolor>black</shadowcolor>
-						<label>$INFO[ListItem.Label]</label>
-						<textoffsetx>15</textoffsetx>
-					</control>
-					<control type="label">
-						<top>160</top>
-						<width>300</width>
-						<height>60</height>
-						<font>font14</font>
-						<align>center</align>
-						<selectedcolor>selected</selectedcolor>
-						<shadowcolor>black</shadowcolor>
-						<label>$INFO[ListItem.Label2]</label>
-						<textoffsetx>15</textoffsetx>
-					</control>
-					<control type="label">
-						<top>240</top>
-						<width>300</width>
-						<height>60</height>
-						<font>font14</font>
-						<align>center</align>
-						<shadowcolor>black</shadowcolor>
-						<selectedcolor>selected</selectedcolor>
-						<label>$INFO[ListItem.Property(HighTemp),[COLOR red],[/COLOR]]$INFO[ListItem.Property(LowTemp), | [COLOR blue],[/COLOR]]</label>
-						<textoffsetx>15</textoffsetx>
-					</control>
-				</focusedlayout>
-				<content>
-					<item>
-						<label>$LOCALIZE[31909]</label>
-						<icon>-</icon>
-						<onclick>noop</onclick>
-						<visible>!Weather.IsFetched</visible>
-					</item>
-					<item>
-						<label>$INFO[Window(weather).Property(Day0.Title)]</label>
-						<label2>$INFO[Window(weather).Property(Day0.Outlook)]</label2>
-						<icon>$VAR[WeatherOverviewIcon0Var]</icon>
-						<property name="HighTemp">$INFO[Window(weather).Property(Day0.HighTemp)]$INFO[System.TemperatureUnits]</property>
-						<property name="LowTemp">$INFO[Window(weather).Property(Day0.LowTemp)]$INFO[System.TemperatureUnits]</property>
-						<onclick>noop</onclick>
-					</item>
-					<item>
-						<label>$INFO[Window(weather).Property(Day1.Title)]</label>
-						<label2>$INFO[Window(weather).Property(Day1.Outlook)]</label2>
-						<icon>$VAR[WeatherOverviewIcon1Var]</icon>
-						<property name="HighTemp">$INFO[Window(weather).Property(Day1.HighTemp)]$INFO[System.TemperatureUnits]</property>
-						<property name="LowTemp">$INFO[Window(weather).Property(Day1.LowTemp)]$INFO[System.TemperatureUnits]</property>
-						<onclick>noop</onclick>
-					</item>
-					<item>
-						<label>$INFO[Window(weather).Property(Day2.Title)]</label>
-						<label2>$INFO[Window(weather).Property(Day2.Outlook)]</label2>
-						<icon>$VAR[WeatherOverviewIcon2Var]</icon>
-						<property name="HighTemp">$INFO[Window(weather).Property(Day2.HighTemp)]$INFO[System.TemperatureUnits]</property>
-						<property name="LowTemp">$INFO[Window(weather).Property(Day2.LowTemp)]$INFO[System.TemperatureUnits]</property>
-						<onclick>noop</onclick>
-					</item>
-					<item>
-						<label>$INFO[Window(weather).Property(Day3.Title)]</label>
-						<label2>$INFO[Window(weather).Property(Day3.Outlook)]</label2>
-						<icon>$VAR[WeatherOverviewIcon3Var]</icon>
-						<property name="HighTemp">$INFO[Window(weather).Property(Day3.HighTemp)]$INFO[System.TemperatureUnits]</property>
-						<property name="LowTemp">$INFO[Window(weather).Property(Day3.LowTemp)]$INFO[System.TemperatureUnits]</property>
-						<onclick>noop</onclick>
-					</item>
-					<item>
-						<label>$INFO[Window(weather).Property(Day4.Title)]</label>
-						<label2>$INFO[Window(weather).Property(Day4.Outlook)]</label2>
-						<icon>$VAR[WeatherOverviewIcon4Var]</icon>
-						<property name="HighTemp">$INFO[Window(weather).Property(Day4.HighTemp)]$INFO[System.TemperatureUnits]</property>
-						<property name="LowTemp">$INFO[Window(weather).Property(Day4.LowTemp)]$INFO[System.TemperatureUnits]</property>
-						<onclick>noop</onclick>
-					</item>
-				</content>
-			</control>
-		</control>
-	</include>
 	<include name="LiveTVWidget">
 		<control type="group">
 			<left>490r</left>
 			<top>40</top>
-			<visible>StringCompare(Container(9000).ListItem.Property(widget),livetv)</visible>
 			<include>VisibleFadeEffect</include>
 			<include>Window_OpenClose_Animation</include>
 			<animation effect="fade" start="100" end="0" time="500" condition="Window.IsActive(Favourites)">conditional</animation>

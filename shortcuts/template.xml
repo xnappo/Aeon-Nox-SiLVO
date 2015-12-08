@@ -102,7 +102,7 @@
 						<animation effect="fade" time="300" tween="sine" easing="inout">VisibleChange</animation>
 					</control>
 					<control type="group">
-						<visible>IsEmpty(Container(8001).ListItem.ChannelName) + IsEmpty(Container(8001).ListItem.Artist) + IsEmpty(Container(8001).ListItem.AlbumArtist) + IsEmpty(Container(8001).ListItem.Property(Addon.Name))</visible>
+						<visible>IsEmpty(Container(8001).ListItem.Property(HighTemp)) + IsEmpty(Container(8001).ListItem.ChannelName) + IsEmpty(Container(8001).ListItem.Artist) + IsEmpty(Container(8001).ListItem.AlbumArtist) + IsEmpty(Container(8001).ListItem.Property(Addon.Name))</visible>
 						<control type="image">
 							<left>$SKINSHORTCUTS[lefttexture]</left>
 							<top>-20</top>
@@ -127,7 +127,7 @@
 						</control>
 					</control>
 					<control type="group">
-						<visible>!IsEmpty(Container(8001).ListItem.ChannelName) | !IsEmpty(Container(8001).ListItem.Artist) | !IsEmpty(Container(8001).ListItem.AlbumArtist) | !IsEmpty(Container(8001).ListItem.Property(Addon.Name))</visible>
+						<visible>!IsEmpty(Container(8001).ListItem.Property(HighTemp)) | !IsEmpty(Container(8001).ListItem.ChannelName) | !IsEmpty(Container(8001).ListItem.Artist) | !IsEmpty(Container(8001).ListItem.AlbumArtist) | !IsEmpty(Container(8001).ListItem.Property(Addon.Name))</visible>
 						<control type="image">
 							<left>$SKINSHORTCUTS[lefttexturesquare]</left>
 							<top>-20</top>
@@ -188,7 +188,7 @@
 						<textcolor>grey</textcolor>
 						<shadowcolor>shadow</shadowcolor>
 						<wrapmultiline>true</wrapmultiline>
-						<label>$INFO[Container(8001).ListItem.Label]</label>
+						<label>$VAR[HomeWidget8001TitleVar]</label>
 					</control>
 					<control type="group">
 						<include name="$SKINSHORTCUTS[artcontent]">
@@ -217,10 +217,8 @@
 					<effect type="rotatey" start="0" end="-180" center="$SKINSHORTCUTS[rotatecontainer]" time="400" tween="sine" easing="inout" />
 					<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
 				</animation>
-				<include name="ClassicList">
-					<param name="Target">$SKINSHORTCUTS[target]</param>
-					<param name="Path">$SKINSHORTCUTS[content]</param>
-				</include>
+				<include>ClassicList</include>
+				<content target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[content]</content>
 			</control>
 		</controls>
 	</other>
@@ -267,6 +265,9 @@
 		<property name="artcontent" tag="property" attribute="name|widgetArt" value="Thumb">LandscapeArt</property>
 		<property name="artcontent" tag="property" attribute="name|widgetArt" value="DiscArt">SquareArt</property>
 		<property name="artcontent" tag="property" attribute="name|widgetArt" value="CharacterArt">SquareArt</property>
+		<!-- Set is Weather -->
+		<property name="isweather" tag="property" attribute="name|widget" value="weather">true</property>
+		<property name="isweather">false</property>
 		<!-- Set Glass Case -->
 		<property name="glasscase" tag="property" attribute="name|widgetArt" value="Poster">portrait.png</property>
 		<property name="glasscase" tag="property" attribute="name|widgetArt" value="Square Poster">square.png</property>
@@ -295,6 +296,7 @@
 		<property name="clearVisible" tag="property" attribute="name|widgetCase" value="Clear Case">true</property>
 		<property name="clearVisible">false</property>
 		<!-- Set Label -->
+		<property name="title" tag="property" attribute="name|widget" value="weather">false</property>
 		<property name="title" tag="property" attribute="name|widgetTitle" value="Panel">true</property>
 		<property name="title">false</property>
 		<!-- Set Top Position -->
@@ -356,9 +358,9 @@
 						<param name="caseVisible">$SKINSHORTCUTS[caseVisible]</param>
 						<param name="clearVisible">$SKINSHORTCUTS[clearVisible]</param>
 						<param name="labelVisible">$SKINSHORTCUTS[title]</param>
-						<param name="Target">$SKINSHORTCUTS[target]</param>
-						<param name="Path">$SKINSHORTCUTS[content]</param>
+						<param name="isWeather">$SKINSHORTCUTS[isweather]</param>
 					</include>
+					<content target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[content]</content>
 				</control>
 			</control>
 		</controls>
@@ -465,7 +467,7 @@
 						<animation effect="fade" time="300" tween="sine" easing="inout">VisibleChange</animation>
 					</control>
 					<control type="group">
-						<visible>IsEmpty(Container(8002).ListItem.ChannelName) + IsEmpty(Container(8002).ListItem.Artist) + IsEmpty(Container(8002).ListItem.AlbumArtist) + IsEmpty(Container(8002).ListItem.Property(Addon.Name))</visible>
+						<visible>IsEmpty(Container(8001).ListItem.Property(HighTemp)) + IsEmpty(Container(8002).ListItem.ChannelName) + IsEmpty(Container(8002).ListItem.Artist) + IsEmpty(Container(8002).ListItem.AlbumArtist) + IsEmpty(Container(8002).ListItem.Property(Addon.Name))</visible>
 						<control type="image">
 							<left>$SKINSHORTCUTS[lefttexture]</left>
 							<top>-20</top>
@@ -490,7 +492,7 @@
 						</control>
 					</control>
 					<control type="group">
-						<visible>!IsEmpty(Container(8002).ListItem.ChannelName) | !IsEmpty(Container(8002).ListItem.Artist) | !IsEmpty(Container(8002).ListItem.AlbumArtist) | !IsEmpty(Container(8002).ListItem.Property(Addon.Name))</visible>
+						<visible>!IsEmpty(Container(8001).ListItem.Property(HighTemp)) | !IsEmpty(Container(8002).ListItem.ChannelName) | !IsEmpty(Container(8002).ListItem.Artist) | !IsEmpty(Container(8002).ListItem.AlbumArtist) | !IsEmpty(Container(8002).ListItem.Property(Addon.Name))</visible>
 						<control type="image">
 							<left>$SKINSHORTCUTS[lefttexturesquare]</left>
 							<top>-20</top>
@@ -579,10 +581,8 @@
 					<effect type="rotatey" start="0" end="-180" center="$SKINSHORTCUTS[rotatecontainer]" time="400" tween="sine" easing="inout" />
 					<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
 				</animation>
-				<include name="ClassicList">
-					<param name="Target">$SKINSHORTCUTS[target]</param>
-					<param name="Path">$SKINSHORTCUTS[content]</param>
-				</include>
+				<include>ClassicList</include>
+				<content target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[content]</content>
 			</control>
 		</controls>
 	</other>
@@ -629,6 +629,9 @@
 		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="Thumb">LandscapeArt</property>
 		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="DiscArt">SquareArt</property>
 		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="CharacterArt">SquareArt</property>
+		<!-- Set is Weather -->
+		<property name="isweather" tag="property" attribute="name|widget.2" value="weather">true</property>
+		<property name="isweather">false</property>
 		<!-- Set Glass Case -->
 		<property name="glasscase" tag="property" attribute="name|widgetArt.2" value="Poster">portrait.png</property>
 		<property name="glasscase" tag="property" attribute="name|widgetArt.2" value="Square Poster">square.png</property>
@@ -657,6 +660,7 @@
 		<property name="clearVisible" tag="property" attribute="name|widgetCase.2" value="Clear Case">true</property>
 		<property name="clearVisible">false</property>
 		<!-- Set Label -->
+		<property name="title" tag="property" attribute="name|widget" value="weather">false</property>
 		<property name="title" tag="property" attribute="name|widgetTitle.2" value="Panel">true</property>
 		<property name="title">false</property>
 		<!-- Set Top Position -->
@@ -718,9 +722,9 @@
 						<param name="caseVisible">$SKINSHORTCUTS[caseVisible]</param>
 						<param name="clearVisible">$SKINSHORTCUTS[clearVisible]</param>
 						<param name="labelVisible">$SKINSHORTCUTS[title]</param>
-						<param name="Target">$SKINSHORTCUTS[target]</param>
-						<param name="Path">$SKINSHORTCUTS[content]</param>
+						<param name="isWeather">$SKINSHORTCUTS[isweather]</param>
 					</include>
+					<content target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[content]</content>
 				</control>
 			</control>
 		</controls>
