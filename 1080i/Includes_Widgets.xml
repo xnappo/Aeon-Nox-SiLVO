@@ -27,7 +27,7 @@
 				<centerleft>50%</centerleft>
 				<width>1440</width>
 				<height>310</height>
-				<texture>homewidgets/test.png</texture>
+				<texture>xxxhomewidgets/test.png</texture>
 			</control>
 			<!-- Widgets -->
 			<include>skinshortcuts-template-widgetClassic1</include>
@@ -59,7 +59,7 @@
 				<centerleft>50%</centerleft>
 				<width>1440</width>
 				<height>310</height>
-				<texture>homewidgets/test.png</texture>
+				<texture>xxxhomewidgets/test.png</texture>
 			</control>
 			<control type="image">
 				<top>90</top>
