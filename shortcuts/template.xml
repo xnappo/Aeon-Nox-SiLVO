@@ -415,7 +415,7 @@
 		<property name="aspect" tag="property" attribute="name|widgetArt.2" value="CharacterArt">keep</property>
 		<property name="aspect">scale</property>
 		<!-- Set Artwork Diffuse -->
-		<property name="diffuse" tag="property" attribute="name|widgetArt.2" value="DiscArt">thumbs/sets/cdart_mask.png</property>
+		<property name="diffuse" tag="property" attribute="name|widgetArt.2" value="DiscArt">homewidgets/cdart-mask.png</property>
 		<property name="diffuse"></property>
 		<!-- Set Art Content -->
 		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="Poster">ClassicPortraitArt</property>
@@ -616,7 +616,7 @@
 		<property name="aspect" tag="property" attribute="name|widgetArt.2" value="CharacterArt">keep</property>
 		<property name="aspect">scale</property>
 		<!-- Set Artwork Diffuse -->
-		<property name="diffuse" tag="property" attribute="name|widgetArt.2" value="DiscArt">thumbs/sets/cdart_mask.png</property>
+		<property name="diffuse" tag="property" attribute="name|widgetArt.2" value="DiscArt">homewidgets/cdart-mask.png</property>
 		<property name="diffuse"></property>
 		<!-- Set Art Content -->
 		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="Poster">PortraitArt</property>
