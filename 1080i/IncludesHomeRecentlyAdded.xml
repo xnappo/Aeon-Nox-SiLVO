@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+	<include name="alignInfoRight">
+		<align>right</align>
+	</include>
+	<include name="alignInfoLeft">
+		<align>left</align>
+	</include>	
 	<include name="NowPlayingVideoWidget">
-		<!-- Video Info -->
+		<!-- Video Info -->			
 		<control type="group">
-			<visible>Player.HasVideo + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])</visible>
+			<visible>Player.HasVideo</visible>
 			<include>VisibleFadeEffect</include>
-			<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0" condition="!Skin.HasSetting(lowermainmenu)">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0" condition="!Skin.HasSetting(lowermainmenu)">WindowClose</animation>
-			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0" condition="Skin.HasSetting(lowermainmenu)">WindowOpen</animation>
-			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0" condition="Skin.HasSetting(lowermainmenu)">WindowClose</animation>
-			<animation effect="slide" end="0,670" time="320" tween="cubic" easing="inout" condition="!Skin.HasSetting(lowermainmenu)">Conditional</animation>
+			<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0" condition="!Skin.HasSetting(lowermainmenu) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0" condition="!Skin.HasSetting(lowermainmenu) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">WindowClose</animation>
+			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0" condition="Skin.HasSetting(lowermainmenu) | StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">WindowOpen</animation>
+			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0" condition="Skin.HasSetting(lowermainmenu) | StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">WindowClose</animation>
+			<animation effect="slide" end="0,670" time="320" tween="cubic" easing="inout" condition="!Skin.HasSetting(lowermainmenu) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
 			<control type="image">
 				<description>bg image</description>
 				<width>1920</width>
 				<height>600</height>
 				<texture>gradient_floor.png</texture>
-				<visible>!Skin.HasSetting(lowermainmenu)</visible>
+				<visible>!Skin.HasSetting(lowermainmenu) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])</visible>
 			</control>
 			<control type="image">
 				<description>bg image</description>
 				<width>1920</width>
-				<height>560</height>
+				<height>600</height>
 				<texture flipy="true">gradient_floor.png</texture>
-				<visible>Skin.HasSetting(lowermainmenu)</visible>
+				<visible>Skin.HasSetting(lowermainmenu) | StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])</visible>
 			</control>
 			<control type="group">
 				<left>40</left>
-				<top>40</top>
+				<top>50</top>
 				<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
 				<control type="group">
 					<control type="image">
@@ -38,26 +44,29 @@
 						<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
 						<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
 						<bordersize>20</bordersize>
+						<animation effect="slide" end="1649,10" time="320" tween="cubic" easing="inout" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
 					</control>
 					<control type="grouplist">
 						<left>247</left>
-						<width>1510</width>
 						<height>310</height>
 						<itemgap>12</itemgap>
 						<align>center</align>
+						<animation effect="slide" end="423,10" time="320" tween="cubic" easing="inout" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
 						<control type="label">
-							<left>50</left>
-							<width>1300</width>
+							<width>940</width>
 							<height>40</height>
+							<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+							<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
 							<font>font48_title</font>
 							<textcolor>white2</textcolor>
 							<shadowcolor>black</shadowcolor>
 							<label>$INFO[Player.Title]</label>
 						</control>
 						<control type="label">
-							<left>90</left>
-							<width>1300</width>
+							<width>940</width>
 							<height>40</height>
+							<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+							<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
 							<font>font15</font>
 							<textcolor>themecolor</textcolor>
 							<shadowcolor>black</shadowcolor>
@@ -65,9 +74,10 @@
 							<visible>VideoPlayer.Content(episodes)</visible>
 						</control>
 						<control type="label">
-							<left>100</left>
-							<width>1300</width>
+							<width>940</width>
 							<height>40</height>
+							<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+							<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
 							<font>font15</font>
 							<textcolor>white2</textcolor>
 							<shadowcolor>black</shadowcolor>
@@ -75,9 +85,10 @@
 							<visible>VideoPlayer.Content(episodes)</visible>
 						</control>
 						<control type="label">
-							<left>90</left>
-							<width>1300</width>
+							<width>940</width>
 							<height>40</height>
+							<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+							<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
 							<font>font15</font>
 							<textcolor>white2</textcolor>
 							<shadowcolor>black</shadowcolor>
@@ -85,9 +96,10 @@
 							<visible>VideoPlayer.Content(episodes)</visible>
 						</control>
 						<control type="label">
-							<left>90</left>
-							<width>1300</width>
+							<width>940</width>
 							<height>40</height>
+							<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+							<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
 							<font>font15</font>
 							<textcolor>themecolor</textcolor>
 							<shadowcolor>black</shadowcolor>
@@ -95,9 +107,10 @@
 							<visible>VideoPlayer.Content(movies) + !IsEmpty(VideoPlayer.Tagline)</visible>
 						</control>
 						<control type="label">
-							<left>100</left>
-							<width>1300</width>
+							<width>940</width>
 							<height>40</height>
+							<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+							<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
 							<font>font15</font>
 							<textcolor>white2</textcolor>
 							<shadowcolor>black</shadowcolor>
@@ -105,31 +118,22 @@
 							<visible>VideoPlayer.Content(movies)</visible>
 						</control>
 						<control type="label">
-							<left>90</left>
-							<width>1300</width>
+							<width>940</width>
 							<height>40</height>
+							<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+							<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
 							<font>font15</font>
 							<textcolor>white2</textcolor>
 							<shadowcolor>black</shadowcolor>
 							<label>$INFO[VideoPlayer.Studio]</label>
 							<visible>VideoPlayer.Content(movies)</visible>
-						</control>
-						<control type="textbox">
-							<left>100</left>
-							<width>800</width>
-							<height>120</height>
-							<font>font15</font>
-							<textcolor>white</textcolor>
-							<shadowcolor>black</shadowcolor>
-							<label>$INFO[VideoPlayer.Plot]</label>
-							<visible>VideoPlayer.Content(livetv)</visible>
-							<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
-						</control>
+						</control>						
 						<control type="label">
 							<description>Time Label</description>
-							<left>50</left>
 							<height>50</height>
-							<width>1300</width>
+							<width>940</width>
+							<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+							<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
 							<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=labelheader] / [/COLOR]]</label>
 							<font>font48</font>
 							<textcolor>white2</textcolor>
@@ -140,7 +144,7 @@
 			</control>
 			<control type="group">
 				<left>40</left>
-				<top>40</top>
+				<top>50</top>
 				<visible>VideoPlayer.Content(musicvideos) | VideoPlayer.Content(livetv)</visible>
 				<control type="group">
 					<control type="image">
@@ -152,6 +156,7 @@
 						<texture colordiffuse="11FFFFFF">back.png</texture>
 						<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
 						<bordersize>20</bordersize>
+						<animation effect="slide" end="1543,10" time="320" tween="cubic" easing="inout" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
 					</control>
 					<control type="image">
 						<description>Cover image</description>
@@ -159,17 +164,19 @@
 						<height>310</height>
 						<aspectratio>keep</aspectratio>
 						<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
+						<animation effect="slide" end="1543,10" time="320" tween="cubic" easing="inout" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
 					</control>
 					<control type="grouplist">
-						<left>350</left>
-						<width>1510</width>
+						<left>350</left>						
 						<height>310</height>
 						<itemgap>12</itemgap>
 						<align>center</align>
+						<animation effect="slide" end="319,10" time="320" tween="cubic" easing="inout" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
 						<control type="label">
-							<left>50</left>
-							<width>1300</width>
+							<width>840</width>
 							<height>40</height>
+							<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+							<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
 							<font>font48_title</font>
 							<textcolor>themecolor</textcolor>
 							<shadowcolor>black</shadowcolor>
@@ -177,28 +184,31 @@
 							<visible>VideoPlayer.Content(livetv)</visible>
 						</control>
 						<control type="label">
-							<left>50</left>
-							<width>1300</width>
+							<width>840</width>
 							<height>40</height>
+							<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+							<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
 							<font>font48_title</font>
 							<textcolor>white2</textcolor>
 							<shadowcolor>black</shadowcolor>
 							<label>$INFO[Player.Title]</label>
 						</control>
 						<control type="label">
-							<left>90</left>
-							<width>1300</width>
+							<width>840</width>
 							<height>40</height>
+							<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+							<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
 							<font>font15</font>
-							<textcolor>white2</textcolor>
+							<textcolor>themecolor</textcolor>
 							<shadowcolor>black</shadowcolor>
 							<label>$INFO[VideoPlayer.Artist]</label>
 							<visible>VideoPlayer.Content(musicvideos)</visible>
 						</control>
 						<control type="label">
-							<left>100</left>
-							<width>1300</width>
+							<width>840</width>
 							<height>40</height>
+							<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+							<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
 							<font>font15</font>
 							<textcolor>white2</textcolor>
 							<shadowcolor>black</shadowcolor>
@@ -206,9 +216,10 @@
 							<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)</visible>
 						</control>
 						<control type="label">
-							<left>90</left>
-							<width>1300</width>
+							<width>840</width>
 							<height>40</height>
+							<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+							<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
 							<font>font15</font>
 							<textcolor>white2</textcolor>
 							<shadowcolor>black</shadowcolor>
@@ -216,9 +227,10 @@
 							<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos)</visible>
 						</control>
 						<control type="textbox">
-							<left>100</left>
-							<width>800</width>
-							<height>120</height>
+							<width>840</width>
+							<height max="120">auto</height>
+							<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+							<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
 							<font>font15</font>
 							<textcolor>white</textcolor>
 							<shadowcolor>black</shadowcolor>
@@ -228,9 +240,10 @@
 						</control>
 						<control type="label">
 							<description>Time Label</description>
-							<left>50</left>
 							<height>50</height>
-							<width>1300</width>
+							<width>840</width>
+							<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+							<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
 							<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=labelheader] / [/COLOR]]</label>
 							<font>font48</font>
 							<textcolor>white2</textcolor>
@@ -244,138 +257,237 @@
 	<include name="NowPlayingMusicWidget">
 		<!-- Music Info -->
 		<control type="group">
-			<left>0</left>
-			<top>602</top>
 			<visible>Player.HasAudio</visible>
 			<include>VisibleFadeEffect</include>
 			<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0" condition="!Skin.HasSetting(lowermainmenu) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">WindowOpen</animation>
 			<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0" condition="!Skin.HasSetting(lowermainmenu) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">WindowClose</animation>
 			<animation effect="slide" tween="cubic" time="720" start="0,-1080" end="0,0" condition="Skin.HasSetting(lowermainmenu) | StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">WindowOpen</animation>
 			<animation effect="slide" tween="cubic" time="720" end="0,-1080" start="0,0" condition="Skin.HasSetting(lowermainmenu) | StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">WindowClose</animation>
-			<animation effect="slide" end="0,-660" time="320" tween="cubic" easing="inout" condition="Skin.HasSetting(lowermainmenu) | StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
-			<animation effect="slide" end="400,40" time="320" tween="cubic" easing="inout" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
+			<animation effect="slide" end="0,670" time="320" tween="cubic" easing="inout" condition="!Skin.HasSetting(lowermainmenu) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
 			<control type="image">
-				<left>0</left>
-				<top>-152</top>
-				<width>FullScreenWidth</width>
-				<height>630</height>
-				<texture border="1">nowplaying_shadow.png</texture>
-				<visible>!Skin.HasSetting(lowermainmenu) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])</visible>
+				<description>bg image</description>
+				<width>1920</width>
+				<height>600</height>
+				<texture>gradient_floor.png</texture>
+				<visible>!Skin.HasSetting(lowermainmenu)</visible>
 			</control>
 			<control type="image">
-				<animation effect="slide" end="-400,0" time="0" tween="cubic" easing="inout" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
-				<left>0</left>
-				<top>-50</top>
-				<width>FullScreenWidth</width>
-				<height>630</height>
-				<texture flipy="true" border="1">nowplaying_shadow.png</texture>
-				<visible>Skin.HasSetting(lowermainmenu) | StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])</visible>
+				<description>bg image</description>
+				<top>-40</top>
+				<width>1920</width>
+				<height>600</height>
+				<texture flipy="true">gradient_floor.png</texture>
+				<visible>Skin.HasSetting(lowermainmenu)</visible>
 			</control>
-			<control type="grouplist">
-				<left>410</left>
-				<top>86</top>
-				<width>1510</width>
-				<height>460</height>
-				<itemgap>12</itemgap>
-				<usecontrolcoords>true</usecontrolcoords>
-				<control type="label">
-					<left>50</left>
-					<width>1300</width>
-					<height>40</height>
-					<font>font48_title</font>
-					<textcolor>white2</textcolor>
-					<shadowcolor>black</shadowcolor>
-					<label>$INFO[MusicPlayer.TrackNumber,,. ]$INFO[Player.Title]</label>
-				</control>
-				<control type="label">
-					<height>2</height>
-					<label>-</label>
-				</control>
-				<control type="label">
-					<left>90</left>
-					<width>1300</width>
-					<height>40</height>
-					<font>font15</font>
-					<textcolor>white2</textcolor>
-					<shadowcolor>black</shadowcolor>
-					<label>$INFO[MusicPlayer.Artist]</label>
-				</control>
-				<control type="label">
+			<control type="group">
+				<left>40</left>
+				<top>50</top>
+				<visible>!Player.IsInternetStream + !VideoPlayer.Content(livetv)</visible>
+				<control type="image">
 					<left>100</left>
-					<width>1300</width>
-					<height>40</height>
-					<font>font15</font>
-					<textcolor>white2</textcolor>
-					<shadowcolor>black</shadowcolor>
-					<label>$INFO[MusicPlayer.Album]$INFO[musicplayer.discnumber, - $LOCALIZE[427]:]</label>
+					<top>-20</top>
+					<width>350</width>
+					<height>350</height>
+					<aligny>top</aligny>
+					<aspectratio align="left">keep</aspectratio>
+					<fadetime>300</fadetime>
+					<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+					<texture background="true" fallback="special://skin/extras/cdart/default.png" diffuse="thumbs/cdart_mask.png">$INFO[Player.FolderPath]cdart.png</texture>
+					<bordersize>30</bordersize>
+					<visible>!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])</visible>
 				</control>
-				<control type="label">
-					<left>90</left>
-					<width>1300</width>
-					<height>40</height>
-					<font>font15</font>
-					<textcolor>white2</textcolor>
-					<shadowcolor>black</shadowcolor>
-					<label>$INFO[MusicPlayer.offset(1).TrackNumber,[COLOR=labelheader]$LOCALIZE[19031]:[/COLOR] ,. ]$INFO[MusicPlayer.offset(1).Artist,, - ]$INFO[MusicPlayer.offset(1).Title]</label>
+				<control type="image">
+					<left>1543</left>
+					<top>-10</top>
+					<width>350</width>
+					<height>350</height>
+					<aligny>top</aligny>
+					<aspectratio align="left">keep</aspectratio>
+					<fadetime>300</fadetime>
+					<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+					<texture background="true" fallback="special://skin/extras/cdart/default.png" diffuse="thumbs/cdart_mask.png">$INFO[Player.FolderPath]cdart.png</texture>
+					<bordersize>30</bordersize>
+					<visible>StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])</visible>
 				</control>
-				<control type="label">
-					<height>2</height>
-					<label>-</label>
+				<control type="image">
+					<description>Cover image</description>
+					<left>-28</left>
+					<top>-18</top>
+					<width>366</width>
+					<height>366</height>
+					<aspectratio align="right">keep</aspectratio>
+					<texture diffuse="thumbs/cdcover_mask2.png" fallback="DefaultAlbumCover.png">$INFO[Player.Art(thumb)]</texture>
+					<bordertexture border="28">thumbs/cd_shadow2.png</bordertexture>
+					<bordersize>28</bordersize>
+					<animation effect="slide" end="1443,0" time="320" tween="cubic" easing="inout" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
 				</control>
-				<control type="label">
-					<description>Time Label</description>
-					<left>50</left>
-					<height>50</height>
-					<width>1300</width>
-					<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=labelheader] / [/COLOR]]</label>
-					<font>font48</font>
-					<textcolor>white2</textcolor>
-					<shadowcolor>black</shadowcolor>
+				<control type="grouplist">
+					<left>430</left>
+					<height>310</height>
+					<itemgap>12</itemgap>
+					<align>center</align>
+					<animation effect="slide" end="219,10" time="320" tween="cubic" easing="inout" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
+					<control type="label">
+						<width>750</width>
+						<height>40</height>
+						<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+						<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
+						<font>font48_title</font>
+						<textcolor>white2</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[MusicPlayer.TrackNumber,,. ]$INFO[Player.Title]</label>
+					</control>					
+					<control type="label">
+						<width>750</width>
+						<height>40</height>
+						<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+						<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
+						<font>font15</font>
+						<textcolor>themecolor</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[MusicPlayer.Artist]</label>
+					</control>
+					<control type="label">
+						<width>750</width>
+						<height>40</height>
+						<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+						<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
+						<font>font15</font>
+						<textcolor>white2</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[MusicPlayer.Album]$INFO[musicplayer.discnumber, - $LOCALIZE[427]:]</label>
+					</control>
+					<control type="label">
+						<width>750</width>
+						<height>40</height>
+						<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+						<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
+						<font>font15</font>
+						<textcolor>white2</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[MusicPlayer.offset(1).TrackNumber,[COLOR=labelheader]$LOCALIZE[19031]:[/COLOR] ,. ]$INFO[MusicPlayer.offset(1).Artist,, - ]$INFO[MusicPlayer.offset(1).Title]</label>
+					</control>
+					<control type="label">
+						<description>Time Label</description>
+						<height>50</height>
+						<width>750</width>
+						<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+						<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
+						<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=labelheader] / [/COLOR]]</label>
+						<font>font48</font>
+						<textcolor>white2</textcolor>
+						<shadowcolor>black</shadowcolor>
+					</control>
 				</control>
 			</control>
-			<control type="image">
-				<left>160</left>
-				<top>45</top>
-				<width>360</width>
-				<height>360</height>
-				<aligny>top</aligny>
-				<aspectratio align="left">keep</aspectratio>
-				<fadetime>300</fadetime>
-				<animation effect="rotate" end="-360" center="auto" time="4800" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
-				<texture background="true" fallback="special://skin/extras/cdart/default.png" diffuse="thumbs/cdart_mask.png">$INFO[Player.FolderPath]cdart.png</texture>
-				<bordersize>30</bordersize>
-			</control>
-			<control type="image">
-				<description>Cover image</description>
-				<left>-10</left>
-				<top>45</top>
-				<width>390</width>
-				<height>360</height>
-				<aspectratio align="right">keep</aspectratio>
-				<texture diffuse="thumbs/cdcover_mask2.png" fallback="DefaultAlbumCover.png">$INFO[Player.Art(thumb)]</texture>
-				<bordertexture border="28">thumbs/cd_shadow2.png</bordertexture>
-				<bordersize>28</bordersize>
-			</control>
-			<!--<control type="image">
-				<left>1290</left>
-				<top>45</top>
-				<width>609</width>
-				<height>360</height>
-				<aspectratio>stretch</aspectratio>
-				<texture border="20">thumbs/thumb_shadow.png</texture>
-			</control>
-			<control type="multiimage">
-				<description>Fanart image</description>
-				<left>1310</left>
-				<top>65</top>
-				<width>570</width>
-				<height>320</height>
-				<aspectratio align="left">keep</aspectratio>
-				<imagepath background="true" fallback="special://skin/backgrounds/fallback_music.jpg">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
-				<texture fallback="special://skin/backgrounds/fallback_music.jpg">$INFO[Player.Art(fanart)]</texture>
-				<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
-				<bordersize>20</bordersize>
-			</control>-->
+			<control type="group">
+				<left>40</left>
+				<top>50</top>
+				<visible>Player.IsInternetStream | VideoPlayer.Content(livetv)</visible>
+				<control type="image">
+					<description>Cover image</description>
+					<top>-20</top>
+					<left>-20</left>
+					<width>350</width>
+					<height>350</height>
+					<texture colordiffuse="11FFFFFF">back.png</texture>
+					<bordertexture border="20">thumbs/thumb_shadow.png</bordertexture>
+					<bordersize>20</bordersize>
+					<animation effect="slide" end="1543,10" time="320" tween="cubic" easing="inout" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
+				</control>
+				<control type="image">
+					<description>Cover image</description>
+					<width>310</width>
+					<height>310</height>
+					<aspectratio>keep</aspectratio>
+					<texture fallback="DefaultVideoCover.png">$VAR[HomeNowPlayingThumbVar]</texture>
+					<animation effect="slide" end="1543,10" time="320" tween="cubic" easing="inout" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
+				</control>
+				<control type="grouplist">
+					<left>350</left>
+					<height>310</height>
+					<itemgap>12</itemgap>
+					<align>center</align>
+					<animation effect="slide" end="319,10" time="320" tween="cubic" easing="inout" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
+					<control type="label">
+						<width>840</width>
+						<height>40</height>
+						<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+						<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
+						<font>font48_title</font>
+						<textcolor>themecolor</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[VideoPlayer.ChannelName]</label>
+						<visible>VideoPlayer.Content(livetv)</visible>
+					</control>
+					<control type="label">
+						<width>830</width>
+						<height>40</height>
+						<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+						<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
+						<font>font48_title</font>
+						<textcolor>white2</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[Player.Title]</label>
+					</control>					
+					<control type="label">
+						<width>830</width>
+						<height>40</height>
+						<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+						<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
+						<font>font15</font>
+						<textcolor>themecolor</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[MusicPlayer.Artist]</label>
+						<visible>Player.IsInternetStream + !IsEmpty(MusicPlayer.Artist)</visible>
+					</control>
+					<control type="label">
+						<width>830</width>
+						<height>40</height>
+						<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+						<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
+						<font>font15</font>
+						<textcolor>themecolorr</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[MusicPlayer.Genre]</label>
+						<visible>Player.IsInternetStream + !IsEmpty(MusicPlayer.Genre)</visible>
+					</control>
+					<control type="label">
+						<width>830</width>
+						<height>40</height>
+						<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+						<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
+						<font>font15</font>
+						<textcolor>white2</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>[COLOR=labelheader]$LOCALIZE[19031]:[/COLOR] $INFO[MusicPlayer.offset(1).Title]</label>
+						<visible>Player.IsInternetStream + !IsEmpty(MusicPlayer.offset(1).Title)</visible>
+					</control>
+					<control type="textbox">						
+						<width>840</width>
+						<height max="120">auto</height>
+						<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+						<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
+						<font>font15</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>black</shadowcolor>
+						<label>$INFO[VideoPlayer.Plot]</label>
+						<visible>VideoPlayer.Content(livetv)</visible>
+						<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(Enable.AutoScroll)</autoscroll>
+					</control>
+					<control type="label">
+						<description>Time Label</description>
+						<height>50</height>
+						<width>830</width>
+						<include condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoRight</include>
+						<include condition="!StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">alignInfoLeft</include>
+						<label>$INFO[Player.Time]$INFO[Player.Duration,[COLOR=labelheader] / [/COLOR]]</label>
+						<font>font48</font>
+						<textcolor>white2</textcolor>
+						<shadowcolor>black</shadowcolor>
+					</control>
+				</control>
+			</control>				
 		</control>
 	</include>
 	<include name="RSSFeedWidget">
@@ -391,8 +503,8 @@
 			<top>612</top>
 			<control type="group">
 				<visible>!StringCompare(Skin.String(RSS.Position),$LOCALIZE[418])</visible>
-					<control type="group">
-						<visible>!StringCompare(Skin.String(RSS.Position),$LOCALIZE[571])</visible>
+				<control type="group">
+					<visible>!StringCompare(Skin.String(RSS.Position),$LOCALIZE[571])</visible>
 					<control type="image" id="90101">
 						<left>50</left>
 						<width>90</width>
@@ -528,12 +640,12 @@
 			<animation effect="slide" end="1460,0" time="240">WindowClose</animation>
 			<animation effect="slide" start="1400,0" end="0,0" delay="300" time="240" condition="!window.previous(startup)">WindowOpen</animation>
 			<animation effect="slide" start="1400,0" end="0,0" delay="800" time="480" condition="window.previous(startup)">WindowOpen</animation>
-			<animation effect="slide" end="0,-1000" time="320" tween="cubic" easing="inout" condition="[system.getbool(lookandfeel.enablerssfeeds) + StringCompare(Skin.String(VerticalMenuRSS.Position),$LOCALIZE[419])] | [!system.getbool(lookandfeel.enablerssfeeds) + StringCompare(Skin.String(VerticalMenuSystemBar.Position),$LOCALIZE[418])]">Conditional</animation>
+			<animation effect="slide" end="0,-993" time="320" tween="cubic" easing="inout" condition="[system.getbool(lookandfeel.enablerssfeeds) + StringCompare(Skin.String(VerticalMenuRSS.Position),$LOCALIZE[419])] | [!system.getbool(lookandfeel.enablerssfeeds) + StringCompare(Skin.String(VerticalMenuSystemBar.Position),$LOCALIZE[418])]">Conditional</animation>
 			<animation effect="slide" end="1250,0" time="320" tween="cubic" easing="inout" condition="!system.getbool(lookandfeel.enablerssfeeds)">Conditional</animation>
 			<animation effect="slide" end="100,0" time="320" tween="cubic" easing="inout" condition="!system.getbool(lookandfeel.enablerssfeeds) + !Skin.HasSetting(Disable.SearchButton) + !System.HasMediaDVD">Conditional</animation>
 			<animation effect="slide" end="50,0" time="320" tween="cubic" easing="inout" condition="!system.getbool(lookandfeel.enablerssfeeds) + Skin.HasSetting(Disable.SearchButton) + System.HasMediaDVD">Conditional</animation>
 			<visible>system.getbool(lookandfeel.enablerssfeeds) | [!system.getbool(lookandfeel.enablerssfeeds) + [!Skin.HasSetting(Disable.SearchButton) | System.HasMediaDVD]]</visible>
-			<top>1040</top>
+			<top>1036</top>
 			<control type="group">
 				<control type="image" id="90101">
 					<left>420</left>
@@ -569,8 +681,9 @@
 				</control>
 			</control>
 			<control type="group">
-				<animation effect="slide" end="0,-45" time="320" tween="cubic" easing="inout" condition="[system.getbool(lookandfeel.enablerssfeeds) + StringCompare(Skin.String(VerticalMenuRSS.Position),$LOCALIZE[419])] | [!system.getbool(lookandfeel.enablerssfeeds) + StringCompare(Skin.String(VerticalMenuSystemBar.Position),$LOCALIZE[418])]">Conditional</animation>
+				<animation effect="slide" end="0,-46" time="320" tween="cubic" easing="inout" condition="[system.getbool(lookandfeel.enablerssfeeds) + StringCompare(Skin.String(VerticalMenuRSS.Position),$LOCALIZE[419])] | [!system.getbool(lookandfeel.enablerssfeeds) + StringCompare(Skin.String(VerticalMenuSystemBar.Position),$LOCALIZE[418])]">Conditional</animation>
 				<control type="grouplist" id="9020">
+					<top>3</top>
 					<left>503</left>
 					<width>1360</width>
 					<height>41</height>
@@ -665,19 +778,20 @@
 			</control>
 		</control>
 	</include>
-	<include name="1234LiveTVWidget">
+	<include name="LiveTVWidget">
 		<control type="group">
 			<left>490r</left>
-			<top>40</top>
+			<top>50</top>
+			<visible>!IsEmpty(Container(9000).ListItem.Property(widgetLiveTV))</visible>
 			<include>VisibleFadeEffect</include>
 			<include>Window_OpenClose_Animation</include>
-			<animation effect="fade" start="100" end="0" time="500" condition="Window.IsActive(Favourites)">conditional</animation>
-			<animation effect="slide" end="0,755" time="0" tween="cubic" easing="inout" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
+			<animation effect="slide" end="0,860" time="320" tween="cubic" easing="inout" condition="!Skin.HasSetting(lowermainmenu) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
+			<animation effect="slide" end="0,860" time="320" tween="cubic" easing="inout" condition="StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">Conditional</animation>
 			<control type="group">
-				<animation effect="slide" start="0,0" end="0,100" time="0" condition="PVR.IsRecording">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-130" time="0" condition="PVR.IsRecording + !Skin.HasSetting(lowermainmenu) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,-130" time="0" condition="PVR.IsRecording + StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">conditional</animation>
+				<animation effect="slide" start="0,0" end="0,130" time="0" condition="PVR.IsRecording + Skin.HasSetting(lowermainmenu) + !StringCompare(Skin.String(MainMenu.Layout),$LOCALIZE[31994])">conditional</animation>
 				<visible>PVR.HasNonRecordingTimer</visible>
-				<height>120</height>
-				<top>30</top>
 				<control type="image">
 					<left>-200</left>
 					<top>0</top>
@@ -746,7 +860,6 @@
 			</control>
 			<control type="group">
 				<visible>PVR.IsRecording</visible>
-				<height>150</height>
 				<control type="image">
 					<left>-200</left>
 					<top>0</top>

@@ -295,6 +295,19 @@
 					<label2>$VAR[WidgetTitle2LabelVar]</label2>
 					<visible>!IsEmpty(Container(211).ListItem.Property(widgetName.2)) + !StringCompare(Container(211).ListItem.Property(widget.2),weather) + !StringCompare(Container(211).ListItem.Property(widget.2),$LOCALIZE[31502]) + !SubString(Container(211).ListItem.Property(widgetStyle.2),Classic)</visible>
 				</control>
+				<control type="radiobutton" id="519">
+					<description>Show Live TV Widget</description>
+					<width>1316</width>
+					<height>90</height>
+					<textoffsetx>30</textoffsetx>
+					<font>font15</font>
+					<label>Show live tv widget</label>
+					<onclick condition="!IsEmpty(Container(211).ListItem.Property(widgetLiveTV))">SetProperty(customProperty,widgetLiveTV)</onclick>
+					<onclick condition="IsEmpty(Container(211).ListItem.Property(widgetLiveTV))">SetProperty(customProperty,widgetLiveTV)</onclick>
+					<onclick condition="IsEmpty(Container(211).ListItem.Property(widgetLiveTV))">SetProperty(customValue,true)</onclick>
+					<onclick>SendClick(404)</onclick>
+					<selected>!IsEmpty(Container(211).ListItem.Property(widgetLiveTV))</selected>
+				</control>							
 				<control type="button" id="510">
 					<description>Choose infoline</description>
 					<width>1316</width>
