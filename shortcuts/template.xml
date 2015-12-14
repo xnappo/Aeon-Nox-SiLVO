@@ -1,34 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <template>
 	<!-- ******* WIDGET 1 ******* -->
-	<!-- Classic Widget -->
-	<other include="widgetClassic1">
+	<!-- List Widget -->
+	<other include="widgetList1">
 		<!-- Widget Style -->
-		<condition tag="property" attribute="name|widgetStyle">Classic Left</condition>
-		<condition tag="property" attribute="name|widgetStyle">Classic Right</condition>
-		<match>any</match>
+		<condition tag="property" attribute="name|widgetStyle">List</condition>
 		<!-- Widget properties -->
 		<property name="content" tag="property" attribute="name|widgetPath" />
 		<property name="target" tag="property" attribute="name|widgetTarget" />
 		<property name="name" tag="property" attribute="name|widgetName" />
-		<property name="leftback" tag="property" attribute="name|widgetStyle" value="Classic Left">-16</property>
-		<property name="leftpanel" tag="property" attribute="name|widgetStyle" value="Classic Left">5</property>
-		<property name="lefttexture" tag="property" attribute="name|widgetStyle" value="Classic Left">1227</property>
-		<property name="leftinfo" tag="property" attribute="name|widgetStyle" value="Classic Left">330</property>
-		<property name="lefttexturesquare" tag="property" attribute="name|widgetStyle" value="Classic Left">1110</property>
-		<property name="leftinfosquare" tag="property" attribute="name|widgetStyle" value="Classic Left">330</property>
-		<property name="leftcontainer" tag="property" attribute="name|widgetStyle" value="Classic Left">245</property>
-		<property name="rotate" tag="property" attribute="name|widgetStyle" value="Classic Left">155</property>
-		<property name="rotatecontainer" tag="property" attribute="name|widgetStyle" value="Classic Left">390</property>
-		<property name="leftback" tag="property" attribute="name|widgetStyle" value="Classic Right">1114</property>
-		<property name="leftpanel" tag="property" attribute="name|widgetStyle" value="Classic Right">1135</property>
-		<property name="lefttexture" tag="property" attribute="name|widgetStyle" value="Classic Right">-20</property>
-		<property name="leftinfo" tag="property" attribute="name|widgetStyle" value="Classic Right">212</property>
-		<property name="lefttexturesquare" tag="property" attribute="name|widgetStyle" value="Classic Right">-20</property>
-		<property name="leftinfosquare" tag="property" attribute="name|widgetStyle" value="Classic Right">330</property>
-		<property name="leftcontainer" tag="property" attribute="name|widgetStyle" value="Classic Right">1375</property>
-		<property name="rotate" tag="property" attribute="name|widgetStyle" value="Classic Right">1285</property>
-		<property name="rotatecontainer" tag="property" attribute="name|widgetStyle" value="Classic Right">1520</property>
 		<!-- Set Artwork -->
 		<property name="artwork" tag="property" attribute="name|widgetArt" value="Poster">$VAR[HomeWidget8001PosterVar]</property>
 		<property name="artwork" tag="property" attribute="name|widgetArt" value="Square Poster">$VAR[HomeWidget8001PosterVar]</property>
@@ -53,15 +33,15 @@
 		<property name="aspect" tag="property" attribute="name|widgetArt" value="CharacterArt">keep</property>
 		<property name="aspect">scale</property>
 		<!-- Set Art Content -->
-		<property name="artcontent" tag="property" attribute="name|widgetArt" value="Poster">ClassicPortraitArt</property>
-		<property name="artcontent" tag="property" attribute="name|widgetArt" value="Square Poster">ClassicSquareArt</property>
-		<property name="artcontent" tag="property" attribute="name|widgetArt" value="FanArt">ClassicLandscapeArt</property>
-		<property name="artcontent" tag="property" attribute="name|widgetArt" value="Landscape">ClassicLandscapeArt</property>
-		<property name="artcontent" tag="property" attribute="name|widgetArt" value="ClearArt">ClassicLandscapeArt</property>
-		<property name="artcontent" tag="property" attribute="name|widgetArt" value="ClearLogo">ClassicLandscapeArt</property>
-		<property name="artcontent" tag="property" attribute="name|widgetArt" value="Thumb">ClassicLandscapeArt</property>
-		<property name="artcontent" tag="property" attribute="name|widgetArt" value="DiscArt">ClassicSquareArt</property>
-		<property name="artcontent" tag="property" attribute="name|widgetArt" value="CharacterArt">ClassicSquareArt</property>
+		<property name="artcontent" tag="property" attribute="name|widgetArt" value="Poster">ListPortraitArt</property>
+		<property name="artcontent" tag="property" attribute="name|widgetArt" value="Square Poster">ListSquareArt</property>
+		<property name="artcontent" tag="property" attribute="name|widgetArt" value="FanArt">ListLandscapeArt</property>
+		<property name="artcontent" tag="property" attribute="name|widgetArt" value="Landscape">ListLandscapeArt</property>
+		<property name="artcontent" tag="property" attribute="name|widgetArt" value="ClearArt">ListLandscapeArt</property>
+		<property name="artcontent" tag="property" attribute="name|widgetArt" value="ClearLogo">ListLandscapeArt</property>
+		<property name="artcontent" tag="property" attribute="name|widgetArt" value="Thumb">ListLandscapeArt</property>
+		<property name="artcontent" tag="property" attribute="name|widgetArt" value="DiscArt">ListSquareArt</property>
+		<property name="artcontent" tag="property" attribute="name|widgetArt" value="CharacterArt">ListSquareArt</property>
 		<!-- Set Glass Case -->
 		<property name="glasscase" tag="property" attribute="name|widgetArt" value="Poster">portrait.png</property>
 		<property name="glasscase" tag="property" attribute="name|widgetArt" value="Square Poster">square.png</property>
@@ -91,20 +71,20 @@
 		<controls>
 			<control type="group">
 				<skinshortcuts>visibility</skinshortcuts>
-				<top>90</top>
+				<top>449</top>
 				<left>240</left>
 				<control type="group">
-					<visible>Skin.String(Widget.ClassicInfo,Always On) | [IsEmpty(Skin.String(Widget.ClassicInfo)) + Control.HasFocus(8001)]</visible>
+					<visible>Skin.String(Widget.ListInfo,Always On) | [IsEmpty(Skin.String(Widget.ListInfo)) + Control.HasFocus(8001)]</visible>
 					<control type="image">
 						<width>1440</width>
 						<height>310</height>
-						<texture>mid_shadow.png</texture>
+						<texture>homewidgets/list_shadow.png</texture>
 						<animation effect="fade" time="300" tween="sine" easing="inout">VisibleChange</animation>
 					</control>
 					<control type="group">
 						<visible>IsEmpty(Container(8001).ListItem.Property(HighTemp)) + IsEmpty(Container(8001).ListItem.ChannelName) + IsEmpty(Container(8001).ListItem.Artist) + IsEmpty(Container(8001).ListItem.AlbumArtist) + IsEmpty(Container(8001).ListItem.Property(Addon.Name))</visible>
 						<control type="image">
-							<left>$SKINSHORTCUTS[lefttexture]</left>
+							<left>-20</left>
 							<top>-20</top>
 							<width>233</width>
 							<height>350</height>
@@ -114,8 +94,8 @@
 							<bordersize>20</bordersize>
 						</control>
 						<control type="grouplist">
-							<left>$SKINSHORTCUTS[leftinfo]</left>
-							<include name="ClassicInfo">
+							<left>212</left>
+							<include name="ListInfo">
 								<param name="Texture">$VAR[HomeWidget8001PosterVar]</param>
 								<param name="Width">898</param>
 								<param name="Title">$VAR[HomeWidget8001TitleVar]</param>
@@ -129,7 +109,7 @@
 					<control type="group">
 						<visible>!IsEmpty(Container(8001).ListItem.Property(HighTemp)) | !IsEmpty(Container(8001).ListItem.ChannelName) | !IsEmpty(Container(8001).ListItem.Artist) | !IsEmpty(Container(8001).ListItem.AlbumArtist) | !IsEmpty(Container(8001).ListItem.Property(Addon.Name))</visible>
 						<control type="image">
-							<left>$SKINSHORTCUTS[lefttexturesquare]</left>
+							<left>-20</left>
 							<top>-20</top>
 							<width>350</width>
 							<height>350</height>
@@ -139,8 +119,8 @@
 							<bordersize>20</bordersize>
 						</control>
 						<control type="grouplist">
-							<left>$SKINSHORTCUTS[leftinfosquare]</left>
-							<include name="ClassicInfo">
+							<left>330</left>
+							<include name="ListInfo">
 								<param name="Texture">$VAR[HomeWidget8001PosterVar]</param>
 								<param name="Width">781</param>
 								<param name="Title">$VAR[HomeWidget8001TitleVar]</param>
@@ -153,19 +133,19 @@
 					</control>
 				</control>
 				<control type="image">
-					<left>$SKINSHORTCUTS[leftback]</left>
+					<left>1114</left>
 					<top>-16</top>
 					<width>342</width>
 					<height>342</height>
 					<texture border="40">$VAR[HomeWidgetBackgroundVar]</texture>
-					<animation effect="rotatey" start="0" end="180" center="$SKINSHORTCUTS[rotate]" time="400" tween="sine" easing="inout" condition="Control.HasFocus(8001)">Conditional</animation>
+					<animation effect="rotatey" start="0" end="180" center="1285" time="400" tween="sine" easing="inout" condition="Control.HasFocus(8001)">Conditional</animation>
 				</control>
 				<control type="group">
-					<left>$SKINSHORTCUTS[leftpanel]</left>
+					<left>1135</left>
 					<width>300</width>
 					<height>300</height>
 					<animation type="Conditional" condition="Control.HasFocus(8001)">
-						<effect type="rotatey" start="0" end="180" center="$SKINSHORTCUTS[rotate]" time="400" tween="sine" easing="inout" />
+						<effect type="rotatey" start="0" end="180" center="1285" time="400" tween="sine" easing="inout" />
 						<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
 					</animation>
 					<control type="label">
@@ -207,17 +187,15 @@
 				</control>
 			</control>
 			<control type="list" id="8001">
-				<top>95</top>
-				<left>$SKINSHORTCUTS[leftcontainer]</left>
+				<top>454</top>
+				<left>1375</left>
 				<skinshortcuts>visibility</skinshortcuts>
-				<include name="ClassicWidget1">
-					<param name="classicHeight">$SKINSHORTCUTS[height]</param>
-				</include>
+				<include>ListWidget1</include>
 				<animation type="Conditional" condition="!Control.HasFocus(8001)">
-					<effect type="rotatey" start="0" end="-180" center="$SKINSHORTCUTS[rotatecontainer]" time="400" tween="sine" easing="inout" />
+					<effect type="rotatey" start="0" end="-180" center="1520" time="400" tween="sine" easing="inout" />
 					<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
 				</animation>
-				<include>ClassicList</include>
+				<include>List</include>
 				<content target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[content]</content>
 			</control>
 		</controls>
@@ -300,16 +278,16 @@
 		<property name="title" tag="property" attribute="name|widgetTitle" value="Panel">true</property>
 		<property name="title">false</property>
 		<!-- Set Top Position -->
-		<property name="top" tag="property" attribute="name|widgetArt" value="Poster">95</property>
-		<property name="top" tag="property" attribute="name|widgetArt" value="Square Poster">104</property>
-		<property name="top" tag="property" attribute="name|widgetArt" value="FanArt">112</property>
-		<property name="top" tag="property" attribute="name|widgetArt" value="Landscape">112</property>
-		<property name="top" tag="property" attribute="name|widgetArt" value="ClearArt">112</property>
-		<property name="top" tag="property" attribute="name|widgetArt" value="ClearLogo">112</property>
-		<property name="top" tag="property" attribute="name|widgetArt" value="Banner">111</property>
-		<property name="top" tag="property" attribute="name|widgetArt" value="Thumb">112</property>
-		<property name="top" tag="property" attribute="name|widgetArt" value="DiscArt">104</property>
-		<property name="top" tag="property" attribute="name|widgetArt" value="CharacterArt">104</property>
+		<property name="top" tag="property" attribute="name|widgetArt" value="Poster">454</property>
+		<property name="top" tag="property" attribute="name|widgetArt" value="Square Poster">463</property>
+		<property name="top" tag="property" attribute="name|widgetArt" value="FanArt">471</property>
+		<property name="top" tag="property" attribute="name|widgetArt" value="Landscape">471</property>
+		<property name="top" tag="property" attribute="name|widgetArt" value="ClearArt">471</property>
+		<property name="top" tag="property" attribute="name|widgetArt" value="ClearLogo">471</property>
+		<property name="top" tag="property" attribute="name|widgetArt" value="Banner">470	</property>
+		<property name="top" tag="property" attribute="name|widgetArt" value="Thumb">471</property>
+		<property name="top" tag="property" attribute="name|widgetArt" value="DiscArt">463</property>
+		<property name="top" tag="property" attribute="name|widgetArt" value="CharacterArt">463</property>
 		<!-- Set Label Bottom Position -->
 		<property name="labelBottom" tag="property" attribute="name|widgetArt" value="Poster">309</property>
 		<property name="labelBottom" tag="property" attribute="name|widgetArt" value="Square Poster">291</property>
@@ -339,7 +317,7 @@
 				<skinshortcuts>visibility</skinshortcuts>
 				<include name="PanelBack1">
 					<param name="backHeight">$SKINSHORTCUTS[height]</param>
-					<param name="label">$SKINSHORTCUTS[label]</param>
+					<param name="label">$SKINSHORTCUTS[label] one</param>
 					<param name="labelBottom">$SKINSHORTCUTS[labelBottom]</param>
 				</include>
 			</control>
@@ -366,34 +344,14 @@
 		</controls>
 	</other>
 	<!-- ******* WIDGET 2 ******* -->
-	<!-- Classic Widget -->
-	<other include="widgetClassic2">
+	<!-- List Widget -->
+	<other include="widgetList2">
 		<!-- Widget Style -->
-		<condition tag="property" attribute="name|widgetStyle.2">Classic Left</condition>
-		<condition tag="property" attribute="name|widgetStyle.2">Classic Right</condition>
-		<match>any</match>
+		<condition tag="property" attribute="name|widgetStyle.2">List</condition>
 		<!-- Widget properties -->
 		<property name="content" tag="property" attribute="name|widgetPath.2" />
 		<property name="target" tag="property" attribute="name|widgetTarget.2" />
 		<property name="name" tag="property" attribute="name|widgetName.2" />
-		<property name="leftback" tag="property" attribute="name|widgetStyle.2" value="Classic Left">-16</property>
-		<property name="leftpanel" tag="property" attribute="name|widgetStyle.2" value="Classic Left">5</property>
-		<property name="lefttexture" tag="property" attribute="name|widgetStyle.2" value="Classic Left">1227</property>
-		<property name="leftinfo" tag="property" attribute="name|widgetStyle.2" value="Classic Left">330</property>
-		<property name="lefttexturesquare" tag="property" attribute="name|widgetStyle.2" value="Classic Left">1110</property>
-		<property name="leftinfosquare" tag="property" attribute="name|widgetStyle.2" value="Classic Left">330</property>
-		<property name="leftcontainer" tag="property" attribute="name|widgetStyle.2" value="Classic Left">245</property>
-		<property name="rotate" tag="property" attribute="name|widgetStyle.2" value="Classic Left">155</property>
-		<property name="rotatecontainer" tag="property" attribute="name|widgetStyle.2" value="Classic Left">390</property>
-		<property name="leftback" tag="property" attribute="name|widgetStyle.2" value="Classic Right">1114</property>
-		<property name="leftpanel" tag="property" attribute="name|widgetStyle.2" value="Classic Right">1135</property>
-		<property name="lefttexture" tag="property" attribute="name|widgetStyle.2" value="Classic Right">-20</property>
-		<property name="leftinfo" tag="property" attribute="name|widgetStyle.2" value="Classic Right">212</property>
-		<property name="lefttexturesquare" tag="property" attribute="name|widgetStyle.2" value="Classic Right">-20</property>
-		<property name="leftinfosquare" tag="property" attribute="name|widgetStyle.2" value="Classic Right">330</property>
-		<property name="leftcontainer" tag="property" attribute="name|widgetStyle.2" value="Classic Right">1375</property>
-		<property name="rotate" tag="property" attribute="name|widgetStyle.2" value="Classic Right">1285</property>
-		<property name="rotatecontainer" tag="property" attribute="name|widgetStyle.2" value="Classic Right">1520</property>
 		<!-- Set Artwork -->
 		<property name="artwork" tag="property" attribute="name|widgetArt.2" value="Poster">$VAR[HomeWidget8002PosterVar]</property>
 		<property name="artwork" tag="property" attribute="name|widgetArt.2" value="Square Poster">$VAR[HomeWidget8002PosterVar]</property>
@@ -418,15 +376,15 @@
 		<property name="diffuse" tag="property" attribute="name|widgetArt.2" value="DiscArt">homewidgets/cdart-mask.png</property>
 		<property name="diffuse"></property>
 		<!-- Set Art Content -->
-		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="Poster">ClassicPortraitArt</property>
-		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="Square Poster">ClassicSquareArt</property>
-		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="FanArt">ClassicLandscapeArt</property>
-		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="Landscape">ClassicLandscapeArt</property>
-		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="ClearArt">ClassicLandscapeArt</property>
-		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="ClearLogo">ClassicLandscapeArt</property>
-		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="Thumb">ClassicLandscapeArt</property>
-		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="DiscArt">ClassicSquareArt</property>
-		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="CharacterArt">ClassicSquareArt</property>
+		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="Poster">ListPortraitArt</property>
+		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="Square Poster">ListSquareArt</property>
+		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="FanArt">ListLandscapeArt</property>
+		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="Landscape">ListLandscapeArt</property>
+		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="ClearArt">ListLandscapeArt</property>
+		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="ClearLogo">ListLandscapeArt</property>
+		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="Thumb">ListLandscapeArt</property>
+		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="DiscArt">ListSquareArt</property>
+		<property name="artcontent" tag="property" attribute="name|widgetArt.2" value="CharacterArt">ListSquareArt</property>
 		<!-- Set Glass Case -->
 		<property name="glasscase" tag="property" attribute="name|widgetArt.2" value="Poster">portrait.png</property>
 		<property name="glasscase" tag="property" attribute="name|widgetArt.2" value="Square Poster">square.png</property>
@@ -456,20 +414,20 @@
 		<controls>
 			<control type="group">
 				<skinshortcuts>visibility</skinshortcuts>
-				<top>449</top>
+				<top>90</top>
 				<left>240</left>
 				<control type="group">
-					<visible>Skin.String(Widget.ClassicInfo,Always On) | [IsEmpty(Skin.String(Widget.ClassicInfo)) + Control.HasFocus(8002)]</visible>
+					<visible>Skin.String(Widget.ListInfo,Always On) | [IsEmpty(Skin.String(Widget.ListInfo)) + Control.HasFocus(8002)]</visible>
 					<control type="image">
 						<width>1440</width>
 						<height>310</height>
-						<texture>mid_shadow.png</texture>
+						<texture>homewidgets/list_shadow.png</texture>
 						<animation effect="fade" time="300" tween="sine" easing="inout">VisibleChange</animation>
 					</control>
 					<control type="group">
 						<visible>IsEmpty(Container(8002).ListItem.Property(HighTemp)) + IsEmpty(Container(8002).ListItem.ChannelName) + IsEmpty(Container(8002).ListItem.Artist) + IsEmpty(Container(8002).ListItem.AlbumArtist) + IsEmpty(Container(8002).ListItem.Property(Addon.Name))</visible>
 						<control type="image">
-							<left>$SKINSHORTCUTS[lefttexture]</left>
+							<left>-20</left>
 							<top>-20</top>
 							<width>233</width>
 							<height>350</height>
@@ -479,8 +437,8 @@
 							<bordersize>20</bordersize>
 						</control>
 						<control type="grouplist">
-							<left>$SKINSHORTCUTS[leftinfo]</left>
-							<include name="ClassicInfo">
+							<left>212</left>
+							<include name="ListInfo">
 								<param name="Texture">$VAR[HomeWidget8002PosterVar]</param>
 								<param name="Width">898</param>
 								<param name="Title">$VAR[HomeWidget8002TitleVar]</param>
@@ -494,7 +452,7 @@
 					<control type="group">
 						<visible>!IsEmpty(Container(8002).ListItem.Property(HighTemp)) | !IsEmpty(Container(8002).ListItem.ChannelName) | !IsEmpty(Container(8002).ListItem.Artist) | !IsEmpty(Container(8002).ListItem.AlbumArtist) | !IsEmpty(Container(8002).ListItem.Property(Addon.Name))</visible>
 						<control type="image">
-							<left>$SKINSHORTCUTS[lefttexturesquare]</left>
+							<left>-20</left>
 							<top>-20</top>
 							<width>350</width>
 							<height>350</height>
@@ -504,8 +462,8 @@
 							<bordersize>20</bordersize>
 						</control>
 						<control type="grouplist">
-							<left>$SKINSHORTCUTS[leftinfosquare]</left>
-							<include name="ClassicInfo">
+							<left>330</left>
+							<include name="ListInfo">
 								<param name="Texture">$VAR[HomeWidget8002PosterVar]</param>
 								<param name="Width">781</param>
 								<param name="Title">$VAR[HomeWidget8002TitleVar]</param>
@@ -518,20 +476,19 @@
 					</control>
 				</control>
 				<control type="image">
-					<left>$SKINSHORTCUTS[leftback]</left>
+					<left>1114</left>
 					<top>-16</top>
 					<width>342</width>
 					<height>342</height>
 					<texture border="40">$VAR[HomeWidgetBackgroundVar]</texture>
-					<texture>homewidgets/classic_bg_flat.png</texture>
-					<animation effect="rotatey" start="0" end="180" center="$SKINSHORTCUTS[rotate]" time="400" tween="sine" easing="inout" condition="Control.HasFocus(8002)">Conditional</animation>
+					<animation effect="rotatey" start="0" end="180" center="1285" time="400" tween="sine" easing="inout" condition="Control.HasFocus(8002)">Conditional</animation>
 				</control>
 				<control type="group">
-					<left>$SKINSHORTCUTS[leftpanel]</left>
+					<left>1135</left>
 					<width>300</width>
 					<height>300</height>
 					<animation type="Conditional" condition="Control.HasFocus(8002)">
-						<effect type="rotatey" start="0" end="180" center="$SKINSHORTCUTS[rotate]" time="400" tween="sine" easing="inout" />
+						<effect type="rotatey" start="0" end="180" center="1285" time="400" tween="sine" easing="inout" />
 						<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
 					</animation>
 					<control type="label">
@@ -573,15 +530,15 @@
 				</control>
 			</control>
 			<control type="list" id="8002">
-				<top>454</top>
-				<left>$SKINSHORTCUTS[leftcontainer]</left>
+				<top>95</top>
+				<left>1375</left>
 				<skinshortcuts>visibility</skinshortcuts>
-				<include>ClassicWidget2</include>
+				<include>ListWidget2</include>
 				<animation type="Conditional" condition="!Control.HasFocus(8002)">
-					<effect type="rotatey" start="0" end="-180" center="$SKINSHORTCUTS[rotatecontainer]" time="400" tween="sine" easing="inout" />
+					<effect type="rotatey" start="0" end="-180" center="1520" time="400" tween="sine" easing="inout" />
 					<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
 				</animation>
-				<include>ClassicList</include>
+				<include>List</include>
 				<content target="$SKINSHORTCUTS[target]">$SKINSHORTCUTS[content]</content>
 			</control>
 		</controls>
@@ -664,16 +621,16 @@
 		<property name="title" tag="property" attribute="name|widgetTitle.2" value="Panel">true</property>
 		<property name="title">false</property>
 		<!-- Set Top Position -->
-		<property name="top" tag="property" attribute="name|widgetArt.2" value="Poster">454</property>
-		<property name="top" tag="property" attribute="name|widgetArt.2" value="Square Poster">463</property>
-		<property name="top" tag="property" attribute="name|widgetArt.2" value="FanArt">471</property>
-		<property name="top" tag="property" attribute="name|widgetArt.2" value="Landscape">471</property>
-		<property name="top" tag="property" attribute="name|widgetArt.2" value="ClearArt">471</property>
-		<property name="top" tag="property" attribute="name|widgetArt.2" value="ClearLogo">471</property>
-		<property name="top" tag="property" attribute="name|widgetArt.2" value="Banner">470	</property>
-		<property name="top" tag="property" attribute="name|widgetArt.2" value="Thumb">471</property>
-		<property name="top" tag="property" attribute="name|widgetArt.2" value="DiscArt">463</property>
-		<property name="top" tag="property" attribute="name|widgetArt.2" value="CharacterArt">463</property>
+		<property name="top" tag="property" attribute="name|widgetArt.2" value="Poster">95</property>
+		<property name="top" tag="property" attribute="name|widgetArt.2" value="Square Poster">104</property>
+		<property name="top" tag="property" attribute="name|widgetArt.2" value="FanArt">112</property>
+		<property name="top" tag="property" attribute="name|widgetArt.2" value="Landscape">112</property>
+		<property name="top" tag="property" attribute="name|widgetArt.2" value="ClearArt">112</property>
+		<property name="top" tag="property" attribute="name|widgetArt.2" value="ClearLogo">112</property>
+		<property name="top" tag="property" attribute="name|widgetArt.2" value="Banner">111</property>
+		<property name="top" tag="property" attribute="name|widgetArt.2" value="Thumb">112</property>
+		<property name="top" tag="property" attribute="name|widgetArt.2" value="DiscArt">104</property>
+		<property name="top" tag="property" attribute="name|widgetArt.2" value="CharacterArt">104</property>
 		<!-- Set Label Bottom Position -->
 		<property name="labelBottom" tag="property" attribute="name|widgetArt.2" value="Poster">309</property>
 		<property name="labelBottom" tag="property" attribute="name|widgetArt.2" value="Square Poster">291</property>
@@ -703,7 +660,7 @@
 				<skinshortcuts>visibility</skinshortcuts>
 				<include name="PanelBack2">
 					<param name="backHeight">$SKINSHORTCUTS[height]</param>
-					<param name="label">$SKINSHORTCUTS[label]</param>
+					<param name="label">$SKINSHORTCUTS[label] TWO</param>
 					<param name="labelBottom">$SKINSHORTCUTS[labelBottom]</param>
 				</include>
 			</control>

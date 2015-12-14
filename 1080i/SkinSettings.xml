@@ -889,26 +889,16 @@
 						<texturenofocus border="1">separator5.png</texturenofocus>
 					</control>
 					<control type="button" id="802">
-						<label>Classic Info</label>
-						<label2>[COLOR labelheader]$VAR[WidgetClassicInfoLabelVar][/COLOR]</label2>
-						<onclick>$VAR[WidgetClassicInfoVar]</onclick>
+						<label>Show list widget information</label>
+						<label2>[COLOR labelheader]$VAR[WidgetListInfoLabelVar][/COLOR]</label2>
+						<onclick>$VAR[WidgetListInfoVar]</onclick>
 						<width>1316</width>
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<texturenofocus border="1">separator5.png</texturenofocus>
-					</control>
-					<control type="button" id="803">
-						<label>Vertical Widget Position</label>
-						<label2>[COLOR labelheader]$VAR[WidgetVerticalMenuLabelVar][/COLOR]</label2>
-						<onclick>$VAR[WidgetVerticalMenuVar]</onclick>
-						<width>1316</width>
-						<height>90</height>
-						<textoffsetx>30</textoffsetx>
-						<font>font15</font>
-						<texturenofocus border="1">separator5.png</texturenofocus>
-					</control>
-					<control type="radiobutton" id="704">
+					</control>					
+					<control type="radiobutton" id="803">
 						<width>1316</width>
 						<height>90</height>
 						<textoffsetx>30</textoffsetx>

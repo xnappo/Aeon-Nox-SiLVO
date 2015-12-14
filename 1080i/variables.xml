@@ -1564,14 +1564,14 @@
 		<value condition="StringCompare(Skin.String(Widget.Back),Clear White)">homewidgets/bg_clearwhite.png</value>
 		<value>homewidgets/bg_default.png</value>
 	</variable>
-	<variable name="WidgetClassicInfoLabelVar">
-		<value condition="!IsEmpty(Skin.String(Widget.ClassicInfo))">$INFO[Skin.String(Widget.ClassicInfo)]</value>
+	<variable name="WidgetListInfoLabelVar">
+		<value condition="!IsEmpty(Skin.String(Widget.ListInfo))">$INFO[Skin.String(Widget.ListInfo)]</value>
 		<value>On Focus</value>
 	</variable>
-	<variable name="WidgetClassicInfoVar">
-		<value condition="IsEmpty(Skin.String(Widget.ClassicInfo))">Skin.SetString(Widget.ClassicInfo,Always On)</value>
-		<value condition="StringCompare(Skin.String(Widget.ClassicInfo),Always On)">Skin.SetString(Widget.ClassicInfo,None)</value>
-		<value condition="StringCompare(Skin.String(Widget.ClassicInfo),None)">Skin.Reset(Widget.ClassicInfo)</value>
+	<variable name="WidgetListInfoVar">
+		<value condition="IsEmpty(Skin.String(Widget.ListInfo))">Skin.SetString(Widget.ListInfo,Always On)</value>
+		<value condition="StringCompare(Skin.String(Widget.ListInfo),Always On)">Skin.SetString(Widget.ListInfo,None)</value>
+		<value condition="StringCompare(Skin.String(Widget.ListInfo),None)">Skin.Reset(Widget.ListInfo)</value>
 	</variable>
 	<variable name="WidgetTransLabelVar">
 		<value condition="!IsEmpty(Skin.String(Widget.Trans))">$INFO[Skin.String(Widget.Trans)]</value>
@@ -1600,17 +1600,7 @@
 		<value condition="StringCompare(Skin.String(Widget.Trans),20)">77FFFFFF</value>
 		<value condition="StringCompare(Skin.String(Widget.Trans),10)">66FFFFFF</value>
 		<value>FFFFFFFF</value>
-	</variable>
-	<variable name="WidgetVerticalMenuLabelVar">
-		<value condition="!IsEmpty(Skin.String(Widget.VerticalMenu))">$INFO[Skin.String(Widget.VerticalMenu)]</value>
-		<value>Center</value>
-	</variable>
-	<variable name="WidgetVerticalMenuVar">
-		<value condition="IsEmpty(Skin.String(Widget.VerticalMenu))">Skin.SetString(Widget.VerticalMenu,High)</value>
-		<value condition="StringCompare(Skin.String(Widget.VerticalMenu),High)">Skin.SetString(Widget.VerticalMenu,Low)</value>
-		<value condition="StringCompare(Skin.String(Widget.VerticalMenu),Low)">Skin.SetString(Widget.VerticalMenu,High/Low)</value>
-		<value condition="StringCompare(Skin.String(Widget.VerticalMenu),High/Low)">Skin.Reset(Widget.VerticalMenu)</value>
-	</variable>
+	</variable>	
 	<!-- Widget Artwork -->
 	<variable name="PortraitCaseVar">
 		<value condition="IsEmpty(Skin.String(Poster.Case))">Skin.SetString(Poster.Case,Glass)</value>
