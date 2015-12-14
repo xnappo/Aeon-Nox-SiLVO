@@ -168,13 +168,11 @@
 	<property property="widgetCase.2" icon="homewidgets/clearcase/cd.png" condition="StringCompare(Container(211).ListItem.Property(widgetArt.2),Square Poster)">Clear Case</property>
 	<!-- Widget Style 1 -->
 	<propertySettings property="widgetStyle" buttonID="509" showNone="False" title="Widget Style 1" />
-	<property property="widgetStyle">Classic Left</property>
-	<property property="widgetStyle">Classic Right</property>
+	<property property="widgetStyle">List</property>
 	<property property="widgetStyle">Panel</property>
 	<!-- Widget Style 2 -->
 	<propertySettings property="widgetStyle.2" buttonID="514" showNone="False" title="Widget Style 2" />
-	<property property="widgetStyle.2">Classic Left</property>
-	<property property="widgetStyle.2">Classic Right</property>
+	<property property="widgetStyle.2">List</property>
 	<property property="widgetStyle.2">Panel</property>
 	<!-- Widget Title 1 -->
 	<propertySettings property="widgetTitle" buttonID="515" title="Panel Widget Title 1" />
