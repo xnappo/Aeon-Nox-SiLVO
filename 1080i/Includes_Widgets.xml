@@ -367,7 +367,7 @@
 	<include name="PanelWidget1">
 		<centerleft>50%</centerleft>
 		<top>0</top>
-		<width>1430</width>
+		<width>1435</width>
 		<height>300</height>
 		<include>HorizontalNavigation1</include>
 		<include>OnInfo1</include>
@@ -378,7 +378,7 @@
 	<include name="PanelWidget2">
 		<centerleft>50%</centerleft>
 		<top>0</top>
-		<width>1430</width>
+		<width>1435</width>
 		<height>300</height>
 		<include>HorizontalNavigation2</include>
 		<include>OnInfo2</include>
