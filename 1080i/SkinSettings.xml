@@ -113,12 +113,12 @@
 						<icon>-</icon>
 						<visible>System.HasAddon(script.skin.helper.service)</visible>
 					</item> -->
-					<!-- <item id="8">
-						<label>14036</label>
+					<item id="8">
+						<label>31155</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
 					</item>
-					<item id="9">
+					<!-- <item id="9">
 						<label>13000</label>
 						<onclick>noop</onclick>
 						<icon>-</icon>
@@ -814,6 +814,116 @@
 						<textoffsetx>30</textoffsetx>
 						<font>font15</font>
 						<texturenofocus border="1">separator5.png</texturenofocus>
+					</control>
+				</control>
+				<control type="grouplist" id="9008">
+					<description>control area</description>
+					<left>522</left>
+					<top>32</top>
+					<width>1316</width>
+					<height>720</height>
+					<itemgap>0</itemgap>
+					<pagecontrol>60</pagecontrol>
+					<onleft>9000</onleft>
+					<onright>60</onright>
+					<onup>9008</onup>
+					<ondown>9008</ondown>
+					<visible>Container(9000).HasFocus(8)</visible>
+					<control type="radiobutton" id="800">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>$LOCALIZE[31284]</label>
+						<onclick>Skin.ToggleSetting(Enable.AdvancedWidgets)</onclick>
+						<selected>Skin.HasSetting(Enable.AdvancedWidgets)</selected>
+						<texturenofocus border="1">separator5.png</texturenofocus>
+					</control>
+					<control type="radiobutton" id="801">
+						<label>$LOCALIZE[31285]</label>
+						<onclick>Skin.ToggleSetting(Enable.GlobalWidgetBack)</onclick>
+						<selected>Skin.HasSetting(Enable.GlobalWidgetBack)</selected>
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<texturenofocus border="1">separator5.png</texturenofocus>
+						<visible>Skin.HasSetting(Enable.AdvancedWidgets)</visible>
+					</control>
+					<control type="button" id="802">
+						<label> - $LOCALIZE[19190]</label>
+						<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[WidgetBackLabelVar][/COLOR]</label2>
+						<onclick>$VAR[WidgetBackVar]</onclick>
+						<width>1316</width>
+						<height>60</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font13</font>
+						<texturenofocus border="1">separator5.png</texturenofocus>
+						<visible>Skin.HasSetting(Enable.AdvancedWidgets) + Skin.HasSetting(Enable.GlobalWidgetBack)</visible>
+					</control>
+					<control type="button" id="803">
+						<label>$LOCALIZE[31286]</label>
+						<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[WidgetTransLabelVar]%[/COLOR]</label2>
+						<onclick>SetProperty(Dialog.1.Label,100%)</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(Widget.Trans))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,90%)</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(Widget.Trans,90))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,80%)</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(Widget.Trans,80))</onclick>
+						<onclick>SetProperty(Dialog.4.Label,70%)</onclick>
+						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(Widget.Trans,70))</onclick>
+						<onclick>SetProperty(Dialog.5.Label,60%)</onclick>
+						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(Widget.Trans,60))</onclick>
+						<onclick>SetProperty(Dialog.6.Label,50%)</onclick>
+						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(Widget.Trans,50))</onclick>
+						<onclick>SetProperty(Dialog.7.Label,40%)</onclick>
+						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(Widget.Trans,40))</onclick>
+						<onclick>SetProperty(Dialog.8.Label,30%)</onclick>
+						<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(Widget.Trans,30))</onclick>
+						<onclick>SetProperty(Dialog.9.Label,20%)</onclick>
+						<onclick>SetProperty(Dialog.9.BuiltIn,Skin.SetString(Widget.Trans,20))</onclick>
+						<onclick>SetProperty(Dialog.10.Label,10%)</onclick>
+						<onclick>SetProperty(Dialog.10.BuiltIn,Skin.SetString(Widget.Trans,10))</onclick>
+						<onclick>RunScript(script.toolbox,info=selectdialog,header=Widget Opacity)</onclick>
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<texturenofocus border="1">separator5.png</texturenofocus>
+						<visible>Skin.HasSetting(Enable.AdvancedWidgets)</visible>
+					</control>
+					<control type="button" id="804">
+						<label>$LOCALIZE[31287]</label>
+						<label2>[COLOR $VAR[ThemeLabelColor]]$VAR[WidgetListInfoLabelVar][/COLOR]</label2>
+						<onclick>$VAR[WidgetListInfoVar]</onclick>
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<texturenofocus border="1">separator5.png</texturenofocus>
+						<visible>Skin.HasSetting(Enable.AdvancedWidgets)</visible>
+					</control>
+					<control type="radiobutton" id="805">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>$LOCALIZE[31288]</label>
+						<onclick>Skin.ToggleSetting(Enable.PanelInfo)</onclick>
+						<selected>Skin.HasSetting(Enable.PanelInfo)</selected>
+						<texturenofocus border="1">separator5.png</texturenofocus>
+						<visible>Skin.HasSetting(Enable.AdvancedWidgets)</visible>
+					</control>
+					<control type="radiobutton" id="806">
+						<width>1316</width>
+						<height>90</height>
+						<textoffsetx>30</textoffsetx>
+						<font>font15</font>
+						<label>$LOCALIZE[31289]</label>
+						<onclick>Skin.ToggleSetting(Enable.WidgetHide)</onclick>
+						<selected>Skin.HasSetting(Enable.WidgetHide)</selected>
+						<texturenofocus border="1">separator5.png</texturenofocus>
+						<visible>Skin.HasSetting(Enable.AdvancedWidgets)</visible>
 					</control>
 				</control>
 				<control type="grouplist" id="9011">
